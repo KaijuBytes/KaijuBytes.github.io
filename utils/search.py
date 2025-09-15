@@ -32,17 +32,17 @@ def generate_response(query: str, top_matches: list):
         vector_store = get_vector_store()
         retriever = vector_store.as_retriever(search_kwargs={"k": 3})
 
-        llm = Ollama(model="llama3")
+        # Add the base_url to connect to the 'ollama' service
+        llm = Ollama(model="llama3", base_url="http://ollama:11434")
 
         qa_chain = RetrievalQA.from_chain_type(
             llm=llm,
             chain_type="stuff",
             retriever=retriever,
         )
-        
-        response = qa_chain.invoke({"query": query})
-        
-        return response['result']
+
+        response = qa_chain.run(query)
+        return response
     except Exception as e:
         print(f"Error generating response: {e}")
         return "Sorry, I could not generate a response at this time."

@@ -9,6 +9,8 @@ services:
       - .:/app
     networks:
       - app-network
+    depends_on:
+      - ollama
 
   ollama:
     image: ollama/ollama
