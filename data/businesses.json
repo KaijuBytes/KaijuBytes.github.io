@@ -1,0 +1,20 @@
+[
+  {
+    "name": "Green Earth Vegan",
+    "category": "Cafe",
+    "location": "Bondi",
+    "description": "Plant-based cafe with smoothies and bowls."
+  },
+  {
+    "name": "Bondi Brew Lab",
+    "category": "Coffee Shop",
+    "location": "Bondi",
+    "description": "Specialty coffee and pastries near the beach."
+  },
+  {
+    "name": "Vegan Vibes",
+    "category": "Restaurant",
+    "location": "Bondi",
+    "description": "Vegan burgers, tacos, and live music."
+  }
+]

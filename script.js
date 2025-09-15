@@ -4,19 +4,19 @@ document.addEventListener("DOMContentLoaded", () => {
   const results = document.getElementById("results");
 
   searchButton.addEventListener("click", async () => {
-    const userInput = searchEntry.value.trim();
-    if (!userInput) {
+    const user_input = searchEntry.value.trim();
+    if (!user_input) {
       results.textContent = "Please enter a search query.";
       return;
     }
 
     try {
-      const response = await fetch("https://business-lookup-assistant.onrender.com/lookup", { // Corrected URL
+      const response = await fetch("http://127.0.0.1:8002/lookup", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
         },
-        body: JSON.stringify({ user_input: userInput }) // Ensure this matches the pydantic model in main.py
+        body: JSON.stringify({ user_input })
       });
 
       if (!response.ok) {

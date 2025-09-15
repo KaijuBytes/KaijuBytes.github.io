@@ -1,7 +1,6 @@
-import json
 import os
+import json
 from dotenv import load_dotenv
-
 from langchain_community.embeddings import HuggingFaceEmbeddings
 from langchain_community.vectorstores import FAISS
 from langchain_core.documents import Document
@@ -9,7 +8,7 @@ from langchain_core.documents import Document
 VECTOR_STORE_PATH = "faiss_index"
 load_dotenv()
 
-def load_dataset(path="businesses.json"):
+def load_dataset(path="data/businesses.json"):
     """Loads the business dataset from a JSON file."""
     try:
         with open(path, "r") as f:
@@ -31,7 +30,6 @@ def create_or_load_vector_store():
 
     if os.path.exists(VECTOR_STORE_PATH):
         print("Loading existing vector store from disk...")
-        # `allow_dangerous_deserialization=True` is needed for loading FAISS indices from disk
         return FAISS.load_local(
             VECTOR_STORE_PATH, 
             embeddings, 
