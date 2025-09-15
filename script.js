@@ -11,12 +11,12 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     try {
-      const response = await fetch("http://127.0.0.1:8000/lookup", {
+      const response = await fetch("https://business-lookup-assistant.onrender.com/lookup", { // Corrected URL
         method: "POST",
         headers: {
           "Content-Type": "application/json"
         },
-        body: JSON.stringify({ user_input: userInput })
+        body: JSON.stringify({ user_input: userInput }) // Ensure this matches the pydantic model in main.py
       });
 
       if (!response.ok) {
