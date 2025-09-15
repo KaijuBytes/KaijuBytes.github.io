@@ -3,18 +3,350 @@
     "name": "Green Earth Vegan",
     "category": "Cafe",
     "location": "Bondi",
-    "description": "Plant-based cafe with smoothies and bowls."
+    "description": "Plant-based cafe with smoothies and bowls.",
+    "stars": 4
   },
   {
     "name": "Bondi Brew Lab",
     "category": "Coffee Shop",
     "location": "Bondi",
-    "description": "Specialty coffee and pastries near the beach."
+    "description": "Specialty coffee and pastries near the beach.",
+    "stars": 5
   },
   {
     "name": "Vegan Vibes",
     "category": "Restaurant",
     "location": "Bondi",
-    "description": "Vegan burgers, tacos, and live music."
+    "description": "Vegan burgers, tacos, and live music.",
+    "stars": 4
+  },
+  {
+    "name": "The Salty Squid",
+    "category": "Seafood Restaurant",
+    "location": "Manly",
+    "description": "Freshly caught seafood with a view of the wharf.",
+    "stars": 5
+  },
+  {
+    "name": "Manly Munchies",
+    "category": "Deli",
+    "location": "Manly",
+    "description": "Gourmet sandwiches and artisanal cheeses.",
+    "stars": 3
+  },
+  {
+    "name": "Harbour Hues",
+    "category": "Art Gallery Cafe",
+    "location": "Circular Quay",
+    "description": "Coffee and light bites inside a contemporary art gallery.",
+    "stars": 4
+  },
+  {
+    "name": "Circular Quay Crepes",
+    "category": "Food Stand",
+    "location": "Circular Quay",
+    "description": "Sweet and savory crepes made to order.",
+    "stars": 4
+  },
+  {
+    "name": "The Rocks Roastery",
+    "category": "Coffee Shop",
+    "location": "The Rocks",
+    "description": "Single-origin coffee roasted on-site in a historic setting.",
+    "stars": 5
+  },
+  {
+    "name": "Paddy's Pie Palace",
+    "category": "Bakery",
+    "location": "Haymarket",
+    "description": "Classic Australian meat pies and sausage rolls.",
+    "stars": 3
+  },
+  {
+    "name": "Chinatown Noodles",
+    "category": "Noodle Bar",
+    "location": "Haymarket",
+    "description": "Hand-pulled noodles and authentic Chinese dishes.",
+    "stars": 5
+  },
+  {
+    "name": "Surry Hills Sips",
+    "category": "Cocktail Bar",
+    "location": "Surry Hills",
+    "description": "Innovative cocktails and a speakeasy atmosphere.",
+    "stars": 5
+  },
+  {
+    "name": "Glebe Goodies",
+    "category": "Bakery",
+    "location": "Glebe",
+    "description": "Freshly baked sourdough and pastries.",
+    "stars": 4
+  },
+  {
+    "name": "Newtown Noodle House",
+    "category": "Restaurant",
+    "location": "Newtown",
+    "description": "Spicy ramen and traditional Japanese fare.",
+    "stars": 4
+  },
+  {
+    "name": "The Darling Harbour Diner",
+    "category": "American Diner",
+    "location": "Darling Harbour",
+    "description": "Burgers, fries, and milkshakes with a retro feel.",
+    "stars": 3
+  },
+  {
+    "name": "Sydney Fish Market Grill",
+    "category": "Restaurant",
+    "location": "Pyrmont",
+    "description": "Grilled fish and shellfish straight from the market.",
+    "stars": 5
+  },
+  {
+    "name": "Pyrmont Patisserie",
+    "category": "Patisserie",
+    "location": "Pyrmont",
+    "description": "Exquisite French pastries and cakes.",
+    "stars": 5
+  },
+  {
+    "name": "Rose Bay Ramen",
+    "category": "Noodle Bar",
+    "location": "Rose Bay",
+    "description": "Savory ramen with a beautiful view of the bay.",
+    "stars": 4
+  },
+  {
+    "name": "Double Bay Delights",
+    "category": "Cafe",
+    "location": "Double Bay",
+    "description": "Trendy brunch spot with a focus on local produce.",
+    "stars": 4
+  },
+  {
+    "name": "Woolloomooloo Wharf Wonders",
+    "category": "Restaurant",
+    "location": "Woolloomooloo",
+    "description": "Upscale dining with a magnificent harbor view.",
+    "stars": 5
+  },
+  {
+    "name": "Potts Point Pizzeria",
+    "category": "Pizzeria",
+    "location": "Potts Point",
+    "description": "Neapolitan-style pizzas cooked in a wood-fired oven.",
+    "stars": 4
+  },
+  {
+    "name": "Redfern Retreat",
+    "category": "Cafe",
+    "location": "Redfern",
+    "description": "Cozy cafe with a community feel and great coffee.",
+    "stars": 3
+  },
+  {
+    "name": "Marrickville Microbrewery",
+    "category": "Brewery",
+    "location": "Marrickville",
+    "description": "Craft beers brewed on-site with a laid-back vibe.",
+    "stars": 5
+  },
+  {
+    "name": "The Newtown Baker",
+    "category": "Bakery",
+    "location": "Newtown",
+    "description": "Artisan breads and pastries baked fresh daily.",
+    "stars": 4
+  },
+  {
+    "name": "Paddington Pantry",
+    "category": "Deli",
+    "location": "Paddington",
+    "description": "Gourmet food and imported goods.",
+    "stars": 4
+  },
+  {
+    "name": "Bondi Beach Burritos",
+    "category": "Mexican",
+    "location": "Bondi",
+    "description": "Authentic Mexican burritos and tacos right near the sand.",
+    "stars": 4
+  },
+  {
+    "name": "Cronulla Coffee Co.",
+    "category": "Coffee Shop",
+    "location": "Cronulla",
+    "description": "Espresso bar with a minimalist aesthetic.",
+    "stars": 5
+  },
+  {
+    "name": "Kirribilli Kitchen",
+    "category": "Restaurant",
+    "location": "Kirribilli",
+    "description": "Modern Australian cuisine with stunning bridge views.",
+    "stars": 5
+  },
+  {
+    "name": "North Sydney Nosh",
+    "category": "Cafe",
+    "location": "North Sydney",
+    "description": "Quick bites and strong coffee for the busy professional.",
+    "stars": 3
+  },
+  {
+    "name": "Chatswood Cha Cha",
+    "category": "Bubble Tea",
+    "location": "Chatswood",
+    "description": "Variety of bubble tea flavors and toppings.",
+    "stars": 4
+  },
+  {
+    "name": "Parramatta Pizza",
+    "category": "Pizzeria",
+    "location": "Parramatta",
+    "description": "Family-friendly pizza place with classic toppings.",
+    "stars": 3
+  },
+  {
+    "name": "The Balmain Burger",
+    "category": "Burger Joint",
+    "location": "Balmain",
+    "description": "Hand-crafted burgers with unique sauces.",
+    "stars": 4
+  },
+  {
+    "name": "Mosman Markets",
+    "category": "Deli",
+    "location": "Mosman",
+    "description": "Fresh produce, meats, and deli items.",
+    "stars": 4
+  },
+  {
+    "name": "Newtown Nectar",
+    "category": "Juice Bar",
+    "location": "Newtown",
+    "description": "Cold-pressed juices and healthy smoothies.",
+    "stars": 5
+  },
+  {
+    "name": "The Enmore Espresso",
+    "category": "Coffee Shop",
+    "location": "Enmore",
+    "description": "Small, independent coffee shop with a loyal following.",
+    "stars": 4
+  },
+  {
+    "name": "Bondi Brunch Bar",
+    "category": "Cafe",
+    "location": "Bondi",
+    "description": "All-day brunch with innovative and classic dishes.",
+    "stars": 5
+  },
+  {
+    "name": "Coogee Cuisine",
+    "category": "Restaurant",
+    "location": "Coogee",
+    "description": "Mediterranean-inspired dishes with a seaside vibe.",
+    "stars": 4
+  },
+  {
+    "name": "Randwick Refreshments",
+    "category": "Juice Bar",
+    "location": "Randwick",
+    "description": "Healthy juices, smoothies, and açai bowls.",
+    "stars": 3
+  },
+  {
+    "name": "Bronte Brew",
+    "category": "Coffee Shop",
+    "location": "Bronte",
+    "description": "Artisanal coffee and pastries with a view of the park.",
+    "stars": 4
+  },
+  {
+    "name": "The Clovelly Kitchen",
+    "category": "Cafe",
+    "location": "Clovelly",
+    "description": "Casual cafe known for its hearty breakfast.",
+    "stars": 3
+  },
+  {
+    "name": "The Spot at Randwick",
+    "category": "Cinema Cafe",
+    "location": "Randwick",
+    "description": "Coffee and snacks before or after your movie.",
+    "stars": 4
+  },
+  {
+    "name": "Chatswood Chopsticks",
+    "category": "Restaurant",
+    "location": "Chatswood",
+    "description": "Authentic dim sum and Cantonese cuisine.",
+    "stars": 5
+  },
+  {
+    "name": "Lane Cove Loaf",
+    "category": "Bakery",
+    "location": "Lane Cove",
+    "description": "Freshly baked bread and delicious cakes.",
+    "stars": 4
+  },
+  {
+    "name": "Macquarie Park Munchies",
+    "category": "Food Court",
+    "location": "Macquarie Park",
+    "description": "Variety of quick food options in a bustling food court.",
+    "stars": 3
+  },
+  {
+    "name": "Olympic Park Provisions",
+    "category": "Deli",
+    "location": "Olympic Park",
+    "description": "Sandwiches and drinks for a picnic in the park.",
+    "stars": 3
+  },
+  {
+    "name": "Rhodes Ramen",
+    "category": "Noodle Bar",
+    "location": "Rhodes",
+    "description": "Rich and flavorful ramen broths with a harbor view.",
+    "stars": 4
+  },
+  {
+    "name": "The Burwood Bakery",
+    "category": "Bakery",
+    "location": "Burwood",
+    "description": "Traditional pastries and baked goods from different cultures.",
+    "stars": 4
+  },
+  {
+    "name": "Strathfield Sweets",
+    "category": "Dessert Shop",
+    "location": "Strathfield",
+    "description": "Wide selection of cakes, tarts, and ice cream.",
+    "stars": 5
+  },
+  {
+    "name": "Campsie Cuisine",
+    "category": "Restaurant",
+    "location": "Campsie",
+    "description": "Asian fusion restaurant with a modern twist.",
+    "stars": 4
+  },
+  {
+    "name": "The Lakemba Larder",
+    "category": "Deli",
+    "location": "Lakemba",
+    "description": "Middle Eastern delicacies and fresh produce.",
+    "stars": 5
+  },
+  {
+    "name": "Bankstown Bites",
+    "category": "Cafe",
+    "location": "Bankstown",
+    "description": "Casual cafe with classic Australian breakfast and lunch.",
+    "stars": 3
   }
 ]

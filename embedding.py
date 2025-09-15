@@ -5,7 +5,10 @@ from langchain_community.embeddings import HuggingFaceEmbeddings
 from langchain_community.vectorstores import FAISS
 from langchain_core.documents import Document
 
+# Define the path where the vector store will be saved
 VECTOR_STORE_PATH = "faiss_index"
+
+# Load environment variables
 load_dotenv()
 
 def load_dataset(path="data/businesses.json"):
@@ -19,7 +22,7 @@ def load_dataset(path="data/businesses.json"):
 
     docs = []
     for business in data:
-        full_text = f"Name: {business['name']}\nCategory: {business['category']}\nLocation: {business['location']}\nDescription: {business['description']}"
+        full_text = f"Name: {business['name']}\nCategory: {business['category']}\nLocation: {business['location']}\nDescription: {business['description']}\nStars: {business['stars']}"
         docs.append(Document(page_content=full_text, metadata=business))
     return docs
 
@@ -45,5 +48,6 @@ def create_or_load_vector_store():
         print(f"Vector store saved to '{VECTOR_STORE_PATH}'.")
         return vector_store
 
+# This block will run when you execute `python embedding.py`
 if __name__ == "__main__":
     create_or_load_vector_store()

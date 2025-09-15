@@ -1,13 +1,25 @@
+# fastapi
+# uvicorn
+# langchain
+# langchain-ollama
+# langchain-community
+# langchain-google-genai
+# langchain-huggingface
+# google-generativeai
+# openai
+# faiss-cpu
+# tiktoken
+# python-dotenv
+# sentence-transformers
+# tf-keras
+
 fastapi
 uvicorn
+python-dotenv
 langchain
-langchain-ollama
 langchain-community
 langchain-google-genai
 google-generativeai
-openai
-faiss-cpu
-tiktoken
-python-dotenv
 sentence-transformers
-tf-keras
+faiss-cpu
+langchain-ollama
