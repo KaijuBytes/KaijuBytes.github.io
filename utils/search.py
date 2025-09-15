@@ -1,41 +1,56 @@
-from utils.embedding import vector_store
-from langchain_community.chat_models import ChatOpenAI
-
-def get_top_matches(query: str, k=3):
-    return vector_store.similarity_search(query, k=k)
-
-# def generate_response(query: str, matches):
-#     llm = ChatOpenAI(temperature=0.7)
-#     business_list = "\n".join([f"- {m.metadata['name']}: {m.metadata['description']}" for m in matches])
-#     prompt = f"""You are a helpful assistant. A user asked: "{query}". Based on the dataset, here are the top matches:
-# {business_list}
-# Respond conversationally and offer to help further."""
-#     return llm.predict(prompt)
-
-from langchain_google_genai import ChatGoogleGenerativeAI
-from langchain.schema import HumanMessage
 import os
+from dotenv import load_dotenv
+from langchain_community.embeddings import HuggingFaceEmbeddings
+from langchain_community.vectorstores import FAISS
+from langchain_google_genai import ChatGoogleGenerativeAI
+from langchain.chains import RetrievalQA
 
-# def generate_response(query, matches):
-#     api_key = os.getenv("GOOGLE_API_KEY")
-#     model = ChatGoogleGenerativeAI(model="gemini-pro", google_api_key=api_key)
-#     prompt = f"User asked: {query}\nTop matches:\n" + "\n".join([m.page_content for m in matches])
-#     response = model.invoke([HumanMessage(content=prompt)])
-#     return response.content
+load_dotenv()
 
-from utils.embedding import vector_store
+VECTOR_STORE_PATH = "faiss_index"
 
-def get_top_matches(query: str, k=3):
-    return vector_store.similarity_search(query, k=k)
+def get_vector_store():
+    """Loads the vector store from disk."""
+    model_name = "sentence-transformers/all-MiniLM-L6-v2"
+    embeddings = HuggingFaceEmbeddings(model_name=model_name)
 
-def generate_response(query: str, matches):
-    business_list = "\n".join([
-        f"- {m.metadata['name']} ({m.metadata['category']}): {m.metadata['description']}"
-        for m in matches
-    ])
-    return (
-        f"Based on your query \"{query}\", here are some relevant businesses:\n\n"
-        f"{business_list}\n\n"
-        "Let me know if you'd like more options or details!"
+    # Use `allow_dangerous_deserialization=True` to load from disk
+    return FAISS.load_local(
+        VECTOR_STORE_PATH, 
+        embeddings, 
+        allow_dangerous_deserialization=True
     )
 
+def get_top_matches(query: str, k: int = 3):
+    """Retrieves the top k most relevant documents from the vector store."""
+    try:
+        vector_store = get_vector_store()
+        docs = vector_store.similarity_search(query, k=k)
+        return [doc.metadata for doc in docs]
+    except Exception as e:
+        print(f"Error retrieving matches: {e}")
+        return []
+
+def generate_response(query: str, top_matches: list):
+    """Generates a natural language response using an LLM based on retrieved documents."""
+    try:
+        vector_store = get_vector_store()
+        retriever = vector_store.as_retriever(search_kwargs={"k": 3})
+
+        llm = ChatGoogleGenerativeAI(
+            model="gemini-pro", 
+            google_api_key=os.getenv("GOOGLE_API_KEY")
+        )
+
+        qa_chain = RetrievalQA.from_chain_type(
+            llm=llm,
+            chain_type="stuff",
+            retriever=retriever,
+        )
+        
+        response = qa_chain.invoke({"query": query})
+        
+        return response['result']
+    except Exception as e:
+        print(f"Error generating response: {e}")
+        return "Sorry, I could not generate a response at this time."

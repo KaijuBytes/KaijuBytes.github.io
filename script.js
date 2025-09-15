@@ -4,19 +4,19 @@ document.addEventListener("DOMContentLoaded", () => {
   const results = document.getElementById("results");
 
   searchButton.addEventListener("click", async () => {
-    const query = searchEntry.value.trim();
-    if (!query) {
+    const userInput = searchEntry.value.trim();
+    if (!userInput) {
       results.textContent = "Please enter a search query.";
       return;
     }
 
     try {
-      const response = await fetch("https://business-lookup-assistant.onrender.com/api/lookup", {
+      const response = await fetch("http://127.0.0.1:8000/lookup", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
         },
-        body: JSON.stringify({ query })
+        body: JSON.stringify({ user_input: userInput })
       });
 
       if (!response.ok) {
