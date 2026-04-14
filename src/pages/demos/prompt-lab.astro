@@ -1,0 +1,18 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PromptLab from '../../components/demos/PromptLab';
+---
+
+<BaseLayout title="PromptLab Demo" description="Side-by-side prompt comparison and A/B testing for document extraction.">
+  <section class="py-12">
+    <div class="mb-8">
+      <a href="/demos" class="text-sm font-medium" style="color: var(--color-accent);">&larr; Back to Demos</a>
+      <h1 class="text-3xl font-bold mt-2" style="color: var(--color-text);">PromptLab</h1>
+      <p class="text-lg mt-2" style="color: var(--color-muted);">Side-by-side prompt comparison tool. Test two extraction prompts against the same document and see which produces better structured output.</p>
+      <div class="mt-4 px-4 py-3 rounded-lg text-sm" style="background-color: var(--color-surface); border: 1px solid var(--color-border); color: var(--color-muted);">
+        <strong style="color: var(--color-text);">Simulated demo.</strong> Results and scores are pre-computed to illustrate how structured prompts outperform generic ones. The real IDP System runs actual prompt A/B tests against live AI providers and tracks accuracy metrics over time.
+      </div>
+    </div>
+    <PromptLab client:load />
+  </section>
+</BaseLayout>

@@ -1,0 +1,73 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="About" description="Orlando Martinez (Lanz) — AI Specialist at DSWD Philippines, full-stack systems engineer, and AI-augmented development practitioner.">
+  <section class="py-12">
+    <div class="max-w-3xl">
+      <h1 class="text-3xl font-bold mb-6" style="color: var(--color-text);">About Me</h1>
+
+      <div class="space-y-6 text-base leading-relaxed" style="color: var(--color-muted);">
+        <p>
+          I'm Orlando Martinez (Lanz), an AI Specialist and full-stack systems engineer based in
+          San Jose Del Monte City, Bulacan, Philippines. I work at the Department of Social Welfare
+          and Development (DSWD), where I design and deploy intelligent document processing systems
+          for government operations.
+        </p>
+        <p>
+          My main project, the IDP System, is a production enterprise platform with multi-provider
+          AI extraction, RAG-based document Q&A, human-in-the-loop review workflows, and multi-tenant
+          RBAC. I built it as a solo developer using AI-augmented development — architecting the system
+          myself and orchestrating AI-assisted implementation to achieve the velocity of a small team.
+        </p>
+        <p>
+          Before DSWD, I was a Computer Programmer at the Department of Information and Communications
+          Technology (DICT), where I deployed disaster risk reduction systems, built automation tools,
+          and prototyped AI chatbots. I also spent time as a researcher at UP Los Ba&ntilde;os, where I built
+          the wireless sensor network system that became Lo-CADIS Sprout.
+        </p>
+      </div>
+
+      <!-- Technical Skills -->
+      <div class="mt-10">
+        <h2 class="text-xl font-semibold mb-6" style="color: var(--color-text);">Technical Skills</h2>
+        <div class="grid gap-4 sm:grid-cols-2">
+          <div class="p-4 rounded-lg" style="background-color: var(--color-surface); border: 1px solid var(--color-border);">
+            <h3 class="text-sm font-semibold mb-2" style="color: var(--color-accent);">AI & Machine Learning</h3>
+            <p class="text-sm" style="color: var(--color-muted);">LLM Integration (Ollama, OpenAI, Anthropic, Gemini, Groq), RAG/pgvector, Prompt Engineering & A/B Testing, OCR (Tesseract, EasyOCR), Document AI, Active Learning, HITL Workflows</p>
+          </div>
+          <div class="p-4 rounded-lg" style="background-color: var(--color-surface); border: 1px solid var(--color-border);">
+            <h3 class="text-sm font-semibold mb-2" style="color: var(--color-accent);">Backend</h3>
+            <p class="text-sm" style="color: var(--color-muted);">Python 3.11+, FastAPI, asyncpg, Pydantic v2, Redis, WebSocket, Celery</p>
+          </div>
+          <div class="p-4 rounded-lg" style="background-color: var(--color-surface); border: 1px solid var(--color-border);">
+            <h3 class="text-sm font-semibold mb-2" style="color: var(--color-accent);">Frontend</h3>
+            <p class="text-sm" style="color: var(--color-muted);">React 19, Vite, Tailwind CSS, Axios, Astro</p>
+          </div>
+          <div class="p-4 rounded-lg" style="background-color: var(--color-surface); border: 1px solid var(--color-border);">
+            <h3 class="text-sm font-semibold mb-2" style="color: var(--color-accent);">Database</h3>
+            <p class="text-sm" style="color: var(--color-muted);">PostgreSQL 16, pgvector, asyncpg (raw SQL), Redis 7, TimescaleDB</p>
+          </div>
+          <div class="p-4 rounded-lg" style="background-color: var(--color-surface); border: 1px solid var(--color-border);">
+            <h3 class="text-sm font-semibold mb-2" style="color: var(--color-accent);">Infrastructure</h3>
+            <p class="text-sm" style="color: var(--color-muted);">Docker Compose, MinIO/S3, Kubernetes (Helm), Ansible, Linux, Azure, GCP</p>
+          </div>
+          <div class="p-4 rounded-lg" style="background-color: var(--color-surface); border: 1px solid var(--color-border);">
+            <h3 class="text-sm font-semibold mb-2" style="color: var(--color-accent);">Automation & Security</h3>
+            <p class="text-sm" style="color: var(--color-muted);">n8n Workflows, GitHub Actions, JWT Auth, RBAC, Rate Limiting, Fernet Encryption, Audit Logging</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Contact -->
+      <div class="mt-10 p-6 rounded-xl" style="background-color: var(--color-surface); border: 1px solid var(--color-border);">
+        <h2 class="text-xl font-semibold mb-4" style="color: var(--color-text);">Get in Touch</h2>
+        <div class="space-y-2 text-sm" style="color: var(--color-muted);">
+          <p>Email: <a href="mailto:lnzmrtnz@outlook.com">lnzmrtnz@outlook.com</a> | <a href="mailto:lanz.martinez1205@gmail.com">lanz.martinez1205@gmail.com</a></p>
+          <p>GitHub: <a href="https://github.com/KaijuBytes" target="_blank" rel="noopener">github.com/KaijuBytes</a></p>
+          <p>Location: San Jose Del Monte City, Bulacan, Philippines</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
