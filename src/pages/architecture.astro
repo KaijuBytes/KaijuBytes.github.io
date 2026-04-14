@@ -1,0 +1,124 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Architecture" description="System design diagrams and architectural decisions behind IDP System, Lo-CADIS, and other projects.">
+  <section class="py-12">
+    <h1 class="text-3xl font-bold mb-4" style="color: var(--color-text);">Architecture</h1>
+    <p class="text-lg mb-10" style="color: var(--color-muted);">
+      System design diagrams and key architectural decisions behind my production systems.
+      These illustrate how I think about scale, reliability, and maintainability.
+    </p>
+
+    <div class="space-y-12">
+      <!-- IDP Batch Pipeline -->
+      <div class="rounded-xl p-6" style="background-color: var(--color-surface); border: 1px solid var(--color-border);">
+        <h2 class="text-xl font-semibold mb-4" style="color: var(--color-text);">IDP System — Batch Processing Pipeline</h2>
+        <p class="text-sm mb-6" style="color: var(--color-muted);">
+          The 14-step document pipeline processes uploaded documents through OCR, AI extraction,
+          validation, and human review. Each page goes through a 7-step sub-pipeline.
+          State is tracked in Redis for real-time WebSocket updates.
+        </p>
+        <pre class="text-xs overflow-x-auto p-4 rounded-lg" style="background-color: var(--color-bg); color: var(--color-text); border: 1px solid var(--color-border);"><code>Upload -> Page Split -> Enhancement -> OCR/Vision -> AI Extraction
+   |                                                        |
+   v                                                        v
+Metadata    Sub-doc Detection -> Merge -> Field Validation -> Confidence Check
+   |                                                        |
+   v                                                        v
+Batch       Low Confidence -----> HITL Review Queue         High Confidence
+State                               |                        |
+(Redis)                              v                        v
+   |                           Human Review              Auto-Approve
+   v                               |                        |
+WebSocket <--- Status Updates <-----+------------------------+
+   |                                                        |
+   v                                                        v
+Frontend                        Approved Data -> PDB (separate DB)</code></pre>
+      </div>
+
+      <!-- RAG Architecture -->
+      <div class="rounded-xl p-6" style="background-color: var(--color-surface); border: 1px solid var(--color-border);">
+        <h2 class="text-xl font-semibold mb-4" style="color: var(--color-text);">IDP System — RAG Document Q&A</h2>
+        <p class="text-sm mb-6" style="color: var(--color-muted);">
+          Documents are chunked, embedded via the configured AI provider, and stored in
+          PostgreSQL with pgvector. User queries trigger similarity search, and retrieved
+          chunks are passed as context to the LLM for freeform answers.
+        </p>
+        <pre class="text-xs overflow-x-auto p-4 rounded-lg" style="background-color: var(--color-bg); color: var(--color-text); border: 1px solid var(--color-border);"><code>Document Upload
+     |
+     v
+  Chunking (overlapping windows)
+     |
+     v
+  Embedding (Ollama / OpenAI / Anthropic)
+     |
+     v
+  pgvector Storage (PostgreSQL)
+     |
+     +---> User Query
+     |        |
+     |        v
+     |     Embed Query
+     |        |
+     |        v
+     +---> Similarity Search (cosine distance)
+              |
+              v
+          Top-K Chunks + Query -> LLM
+              |
+              v
+          Freeform Answer (with source citations)</code></pre>
+      </div>
+
+      <!-- RBAC Hierarchy -->
+      <div class="rounded-xl p-6" style="background-color: var(--color-surface); border: 1px solid var(--color-border);">
+        <h2 class="text-xl font-semibold mb-4" style="color: var(--color-text);">IDP System — Multi-Tenant RBAC</h2>
+        <p class="text-sm mb-6" style="color: var(--color-muted);">
+          Five-role hierarchy with JWT authentication. Each role inherits permissions from
+          the roles below it. Organizations contain teams, and data access is scoped accordingly.
+        </p>
+        <pre class="text-xs overflow-x-auto p-4 rounded-lg" style="background-color: var(--color-bg); color: var(--color-text); border: 1px solid var(--color-border);"><code>super_admin  ─── Cross-org access, system settings, user management
+     |
+org_admin    ─── Organization-wide access, team management, email config
+     |
+manager      ─── Team-level access, schema management, batch operations
+     |
+operator     ─── Document upload, extraction, HITL review within team
+     |
+viewer       ─── Read-only access to assigned team data
+
+Auth Flow:
+  Login -> JWT (httpOnly cookie) -> Middleware extracts role + org + team
+  Image URLs -> sessionStorage token -> ?token=<jwt> query param
+  WebSocket -> Token-based authentication for real-time updates</code></pre>
+      </div>
+
+      <!-- Key Architectural Decisions -->
+      <div class="rounded-xl p-6" style="background-color: var(--color-surface); border: 1px solid var(--color-border);">
+        <h2 class="text-xl font-semibold mb-4" style="color: var(--color-text);">Key Architectural Decisions</h2>
+        <div class="space-y-4">
+          <div>
+            <h3 class="text-sm font-semibold" style="color: var(--color-text);">asyncpg over ORMs</h3>
+            <p class="text-sm" style="color: var(--color-muted);">Raw parameterized SQL for full query control, better performance, and no abstraction leaks. Every query is explicit and auditable.</p>
+          </div>
+          <div>
+            <h3 class="text-sm font-semibold" style="color: var(--color-text);">Multi-provider AI with LiteLLM abstraction</h3>
+            <p class="text-sm" style="color: var(--color-muted);">Support for 5 AI providers (Ollama, OpenAI, Anthropic, Gemini, Groq) through a unified interface. Switch providers per-schema or per-organization without code changes.</p>
+          </div>
+          <div>
+            <h3 class="text-sm font-semibold" style="color: var(--color-text);">Redis for batch state, PostgreSQL for persistence</h3>
+            <p class="text-sm" style="color: var(--color-muted);">Transient pipeline state lives in Redis (fast reads, TTL-based cleanup). Final results persist in PostgreSQL. WebSocket updates stream from Redis pub/sub.</p>
+          </div>
+          <div>
+            <h3 class="text-sm font-semibold" style="color: var(--color-text);">PDB in separate database</h3>
+            <p class="text-sm" style="color: var(--color-muted);">Approved extraction data lives in a dedicated Production Database, not the IDP application DB. Clean separation of processing state from production data.</p>
+          </div>
+          <div>
+            <h3 class="text-sm font-semibold" style="color: var(--color-text);">On-prem AI via Ollama for data sovereignty</h3>
+            <p class="text-sm" style="color: var(--color-muted);">Government documents never leave the network. GPU-accelerated local inference with Ollama provides privacy guarantees that cloud APIs cannot.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

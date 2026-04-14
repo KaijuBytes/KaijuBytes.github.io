@@ -1,0 +1,124 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="How I Work" description="AI-augmented development workflow using Claude Code, custom agents, and systematic orchestration.">
+  <section class="py-12">
+    <h1 class="text-3xl font-bold mb-4" style="color: var(--color-text);">How I Work</h1>
+    <p class="text-lg mb-10" style="color: var(--color-muted);">
+      I architect systems, define requirements, orchestrate AI-assisted implementation,
+      and validate through testing. This is AI-augmented development — not "letting AI write code,"
+      but directing AI with deep architectural understanding to build production systems at speed.
+    </p>
+
+    <div class="space-y-10">
+      <!-- The Approach -->
+      <div class="rounded-xl p-6" style="background-color: var(--color-surface); border: 1px solid var(--color-border);">
+        <h2 class="text-xl font-semibold mb-4" style="color: var(--color-text);">The Orchestration Model</h2>
+        <p class="text-sm mb-4" style="color: var(--color-muted);">
+          Building the IDP System (44 services, 30 API routers, 56 test files) in under a year
+          as a solo developer required a fundamentally different approach to development.
+          I treat AI as a force multiplier, not a replacement — the architecture, constraints,
+          and quality gates come from me; the implementation velocity comes from AI-assisted coding.
+        </p>
+        <div class="grid gap-4 sm:grid-cols-2 mt-6">
+          <div class="p-4 rounded-lg" style="background-color: var(--color-bg);">
+            <h3 class="text-sm font-semibold mb-2" style="color: var(--color-accent);">1. Design</h3>
+            <p class="text-sm" style="color: var(--color-muted);">Define architecture, data models, API contracts, and constraints. This is the highest-leverage work — AI can't do this well without deep domain understanding.</p>
+          </div>
+          <div class="p-4 rounded-lg" style="background-color: var(--color-bg);">
+            <h3 class="text-sm font-semibold mb-2" style="color: var(--color-accent);">2. Constrain</h3>
+            <p class="text-sm" style="color: var(--color-muted);">Write CLAUDE.md rules that encode architectural decisions as hard constraints. "asyncpg only, no ORM." "Never DROP TABLE if it has data." The AI follows these automatically.</p>
+          </div>
+          <div class="p-4 rounded-lg" style="background-color: var(--color-bg);">
+            <h3 class="text-sm font-semibold mb-2" style="color: var(--color-accent);">3. Implement</h3>
+            <p class="text-sm" style="color: var(--color-muted);">Direct AI-assisted implementation with specific requirements: "Add endpoint X with RBAC check, rate limiting, audit log, tests, and frontend page." Quality checklist is baked into the rules.</p>
+          </div>
+          <div class="p-4 rounded-lg" style="background-color: var(--color-bg);">
+            <h3 class="text-sm font-semibold mb-2" style="color: var(--color-accent);">4. Validate</h3>
+            <p class="text-sm" style="color: var(--color-muted);">Review generated code, run tests, verify in browser. Every PR needs tests. Every endpoint needs a frontend UI. No shortcuts on quality gates.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- The Tooling -->
+      <div class="rounded-xl p-6" style="background-color: var(--color-surface); border: 1px solid var(--color-border);">
+        <h2 class="text-xl font-semibold mb-4" style="color: var(--color-text);">The Tooling</h2>
+        <p class="text-sm mb-6" style="color: var(--color-muted);">
+          I use Claude Code with a carefully designed configuration system that makes AI context-aware
+          and consistent across sessions. This is not ad-hoc prompting — it's systematic engineering of AI behavior.
+        </p>
+
+        <div class="space-y-6">
+          <div>
+            <h3 class="text-sm font-semibold mb-2" style="color: var(--color-text);">CLAUDE.md — Architectural Constraints as Code</h3>
+            <p class="text-sm mb-2" style="color: var(--color-muted);">
+              A rules file that every AI session reads. Encodes database conventions, auth patterns,
+              endpoint requirements, and subsystem rules. The AI follows these constraints automatically,
+              producing code that matches the codebase style without manual review of every line.
+            </p>
+            <pre class="text-xs overflow-x-auto p-3 rounded-lg" style="background-color: var(--color-bg); color: var(--color-muted); border: 1px solid var(--color-border);"><code>### Every New Endpoint Must Have
+- [ ] RBAC role check
+- [ ] Rate limiting
+- [ ] Audit log entry
+- [ ] Pytest tests (happy path + validation + auth)
+- [ ] Frontend UI (page, component, or panel)</code></pre>
+          </div>
+
+          <div>
+            <h3 class="text-sm font-semibold mb-2" style="color: var(--color-text);">Custom Agents — Domain-Specific AI Assistants</h3>
+            <p class="text-sm" style="color: var(--color-muted);">
+              Specialized agents for different tasks: batch pipeline debugging, migration review,
+              documentation writing. Each agent has focused context and domain knowledge,
+              producing better results than a general-purpose prompt.
+            </p>
+          </div>
+
+          <div>
+            <h3 class="text-sm font-semibold mb-2" style="color: var(--color-text);">Context Budget — Token Efficiency Engineering</h3>
+            <p class="text-sm" style="color: var(--color-muted);">
+              A document that maps which files to load for each task type, preventing the AI from
+              wasting context window on irrelevant code. Like a database query optimizer, but for AI context.
+            </p>
+          </div>
+
+          <div>
+            <h3 class="text-sm font-semibold mb-2" style="color: var(--color-text);">Session Handoff — Continuity Across Conversations</h3>
+            <p class="text-sm" style="color: var(--color-muted);">
+              A protocol for transferring state between AI sessions. Each session writes a status
+              section that the next session reads — zero re-exploration, instant context loading.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Why This Matters -->
+      <div class="rounded-xl p-6" style="background-color: var(--color-surface); border: 1px solid var(--color-border);">
+        <h2 class="text-xl font-semibold mb-4" style="color: var(--color-text);">Why This Matters</h2>
+        <div class="space-y-4">
+          <div class="flex gap-4">
+            <div class="text-2xl font-bold" style="color: var(--color-accent);">44</div>
+            <div>
+              <p class="text-sm font-semibold" style="color: var(--color-text);">Backend services in IDP System</p>
+              <p class="text-sm" style="color: var(--color-muted);">Built by a solo developer in under a year. The orchestration approach multiplies output without sacrificing quality.</p>
+            </div>
+          </div>
+          <div class="flex gap-4">
+            <div class="text-2xl font-bold" style="color: var(--color-accent);">56</div>
+            <div>
+              <p class="text-sm font-semibold" style="color: var(--color-text);">Test files with comprehensive coverage</p>
+              <p class="text-sm" style="color: var(--color-muted);">AI-assisted doesn't mean untested. The CLAUDE.md rules enforce tests on every endpoint.</p>
+            </div>
+          </div>
+          <div class="flex gap-4">
+            <div class="text-2xl font-bold" style="color: var(--color-accent);">5</div>
+            <div>
+              <p class="text-sm font-semibold" style="color: var(--color-text);">AI providers supported</p>
+              <p class="text-sm" style="color: var(--color-muted);">Ollama, OpenAI, Anthropic, Gemini, Groq — with a unified abstraction layer. Architectural thinking enables this flexibility.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
