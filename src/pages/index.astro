@@ -1,0 +1,86 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+
+const featuredProjects = [
+  {
+    title: 'IDP System',
+    description: 'Enterprise RAG-based document extraction with 14-step batch pipeline, multi-provider AI (5 providers), Human-in-the-Loop review, and multi-tenant RBAC. 44 backend services, 30 API routers, 56 test files.',
+    tags: ['Python', 'FastAPI', 'React', 'PostgreSQL', 'pgvector', 'Ollama', 'Docker'],
+    demoUrl: '/demos',
+  },
+  {
+    title: 'Lo-CADIS Sprout',
+    description: 'Real-time IoT monitoring platform with MQTT ingestion, ESP32/Wemos firmware, TimescaleDB time-series storage, automated alerting, and multi-tenant farm management.',
+    tags: ['FastAPI', 'React', 'MQTT', 'ESP32', 'TimescaleDB', 'Docker'],
+    repoUrl: 'https://github.com/KaijuBytes/locadis',
+  },
+  {
+    title: 'Business Lookup AI',
+    description: 'Local LLM-powered assistant for business search using Ollama. Demonstrates on-prem AI inference with semantic search capabilities.',
+    tags: ['Python', 'Ollama', 'FAISS', 'LLM'],
+    repoUrl: 'https://github.com/KaijuBytes/business-lookup-AI',
+  },
+];
+---
+
+<BaseLayout title="Home" description="Orlando Martinez (Lanz) — AI Specialist & Full-Stack Systems Engineer. Building intelligent document processing, IoT tracking, and AI-augmented systems for government and enterprise.">
+  <section class="py-12 sm:py-20">
+    <div class="max-w-3xl flex flex-col sm:flex-row sm:items-center gap-8">
+      <img
+        src="/images/profile.jpg"
+        alt="Orlando Martinez (Lanz)"
+        width="112"
+        height="112"
+        class="w-28 h-28 rounded-full object-cover flex-shrink-0"
+        style="border: 2px solid var(--color-border);"
+      />
+      <div>
+      <p class="text-sm font-medium mb-4" style="color: var(--color-accent);">AI Specialist & Systems Orchestrator</p>
+      <h1 class="text-4xl sm:text-5xl font-bold tracking-tight mb-6" style="color: var(--color-text);">
+        Building intelligent systems<br />for government and enterprise
+      </h1>
+      <p class="text-lg leading-relaxed mb-8" style="color: var(--color-muted);">
+        I design and deploy production AI platforms with multi-provider LLM integration,
+        RAG-based document Q&A, and human-in-the-loop workflows. Full-stack development
+        combined with AI-augmented systems orchestration to deliver scalable, secure automation.
+      </p>
+      <div class="flex flex-wrap gap-4">
+        <a href="/projects" class="inline-flex items-center px-6 py-3 rounded-lg text-sm font-medium text-white transition-colors" style="background-color: var(--color-accent);">
+          View Projects &rarr;
+        </a>
+        <a href="/demos" class="inline-flex items-center px-6 py-3 rounded-lg text-sm font-medium transition-colors" style="border: 1px solid var(--color-border); color: var(--color-text);">
+          Try Live Demos
+        </a>
+      </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-12">
+    <h2 class="text-2xl font-bold mb-8" style="color: var(--color-text);">Featured Projects</h2>
+    <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      {featuredProjects.map(project => (
+        <ProjectCard {...project} />
+      ))}
+    </div>
+  </section>
+
+  <section class="py-12">
+    <h2 class="text-2xl font-bold mb-6" style="color: var(--color-text);">What I Bring</h2>
+    <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <div class="p-5 rounded-lg" style="background-color: var(--color-surface); border: 1px solid var(--color-border);">
+        <h3 class="font-semibold mb-2" style="color: var(--color-text);">AI & Document Processing</h3>
+        <p class="text-sm" style="color: var(--color-muted);">Multi-provider LLM orchestration, OCR, RAG pipelines, active learning with prompt A/B testing, HITL review workflows.</p>
+      </div>
+      <div class="p-5 rounded-lg" style="background-color: var(--color-surface); border: 1px solid var(--color-border);">
+        <h3 class="font-semibold mb-2" style="color: var(--color-text);">Full-Stack Engineering</h3>
+        <p class="text-sm" style="color: var(--color-muted);">Python/FastAPI + React + PostgreSQL. Async-first architecture, raw SQL with asyncpg, WebSocket real-time updates.</p>
+      </div>
+      <div class="p-5 rounded-lg" style="background-color: var(--color-surface); border: 1px solid var(--color-border);">
+        <h3 class="font-semibold mb-2" style="color: var(--color-text);">Infrastructure & Security</h3>
+        <p class="text-sm" style="color: var(--color-muted);">Docker Compose, Kubernetes (Helm), Ansible. JWT auth, 5-role RBAC, rate limiting, Fernet encryption, audit logging.</p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

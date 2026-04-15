@@ -1,0 +1,18 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import BatchViz from '../../components/demos/BatchViz';
+---
+
+<BaseLayout title="BatchViz Demo" description="Interactive visualization of a 14-step document processing pipeline with live metrics.">
+  <section class="py-12">
+    <div class="mb-8">
+      <a href="/demos" class="text-sm font-medium" style="color: var(--color-accent);">&larr; Back to Demos</a>
+      <h1 class="text-3xl font-bold mt-2" style="color: var(--color-text);">BatchViz</h1>
+      <p class="text-lg mt-2" style="color: var(--color-muted);">Interactive visualization of a 14-step document processing pipeline. Watch documents flow through extraction, validation, and review stages with live metrics.</p>
+      <div class="mt-4 px-4 py-3 rounded-lg text-sm" style="background-color: var(--color-surface); border: 1px solid var(--color-border); color: var(--color-muted);">
+        <strong style="color: var(--color-text);">Simulated demo.</strong> This visualizes the architecture of the production IDP System's batch pipeline. Documents, confidence scores, and metrics are simulated to demonstrate how the 14-step pipeline routes documents through validation and HITL review. The real system processes actual documents with AI extraction.
+      </div>
+    </div>
+    <BatchViz client:load />
+  </section>
+</BaseLayout>
