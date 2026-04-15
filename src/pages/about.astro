@@ -5,7 +5,20 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 <BaseLayout title="About" description="Orlando Martinez (Lanz) — AI Specialist at DSWD Philippines, full-stack systems engineer, and AI-augmented development practitioner.">
   <section class="py-12">
     <div class="max-w-3xl">
-      <h1 class="text-3xl font-bold mb-6" style="color: var(--color-text);">About Me</h1>
+      <div class="flex flex-col sm:flex-row sm:items-center gap-6 mb-8">
+        <img
+          src="/images/profile.jpg"
+          alt="Orlando Martinez (Lanz)"
+          width="128"
+          height="128"
+          class="w-32 h-32 rounded-full object-cover"
+          style="border: 2px solid var(--color-border);"
+        />
+        <div>
+          <h1 class="text-3xl font-bold mb-2" style="color: var(--color-text);">About Me</h1>
+          <p class="text-sm" style="color: var(--color-muted);">Orlando Martinez (Lanz) — AI Specialist & Full-Stack Systems Engineer</p>
+        </div>
+      </div>
 
       <div class="space-y-6 text-base leading-relaxed" style="color: var(--color-muted);">
         <p>

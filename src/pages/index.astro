@@ -26,7 +26,16 @@ const featuredProjects = [
 
 <BaseLayout title="Home" description="Orlando Martinez (Lanz) — AI Specialist & Full-Stack Systems Engineer. Building intelligent document processing, IoT tracking, and AI-augmented systems for government and enterprise.">
   <section class="py-12 sm:py-20">
-    <div class="max-w-3xl">
+    <div class="max-w-3xl flex flex-col sm:flex-row sm:items-center gap-8">
+      <img
+        src="/images/profile.jpg"
+        alt="Orlando Martinez (Lanz)"
+        width="112"
+        height="112"
+        class="w-28 h-28 rounded-full object-cover flex-shrink-0"
+        style="border: 2px solid var(--color-border);"
+      />
+      <div>
       <p class="text-sm font-medium mb-4" style="color: var(--color-accent);">AI Specialist & Systems Orchestrator</p>
       <h1 class="text-4xl sm:text-5xl font-bold tracking-tight mb-6" style="color: var(--color-text);">
         Building intelligent systems<br />for government and enterprise
@@ -43,6 +52,7 @@ const featuredProjects = [
         <a href="/demos" class="inline-flex items-center px-6 py-3 rounded-lg text-sm font-medium transition-colors" style="border: 1px solid var(--color-border); color: var(--color-text);">
           Try Live Demos
         </a>
+      </div>
       </div>
     </div>
   </section>
