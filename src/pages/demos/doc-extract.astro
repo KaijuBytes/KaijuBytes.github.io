@@ -1,0 +1,18 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import DocExtract from '../../components/demos/DocExtract';
+---
+
+<BaseLayout title="DocExtract Demo" description="Client-side document extraction with OCR and schema-based field extraction.">
+  <section class="py-12">
+    <div class="mb-8">
+      <a href="/demos" class="text-sm font-medium" style="color: var(--color-accent);">&larr; Back to Demos</a>
+      <h1 class="text-3xl font-bold mt-2" style="color: var(--color-text);">DocExtract</h1>
+      <p class="text-lg mt-2" style="color: var(--color-muted);">Client-side document extraction. Upload an image, OCR it with Tesseract.js, and extract structured fields using a predefined schema.</p>
+      <div class="mt-4 px-4 py-3 rounded-lg text-sm" style="background-color: var(--color-surface); border: 1px solid var(--color-border); color: var(--color-muted);">
+        <strong style="color: var(--color-text);">How it works:</strong> OCR Only mode runs real Tesseract.js in your browser on uploaded images. Vision mode uses simulated AI results. The "Use Sample Invoice" button demonstrates extraction against hardcoded sample text. This is a simplified version of the production IDP System's extraction pipeline.
+      </div>
+    </div>
+    <DocExtract client:load />
+  </section>
+</BaseLayout>

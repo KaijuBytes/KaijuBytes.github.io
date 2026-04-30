@@ -1,0 +1,58 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+
+const projects = [
+  {
+    title: 'IDP System — Intelligent Document Processing',
+    description: 'Enterprise RAG-based document extraction engine with parallel batch processing (14-step pipeline), multi-provider AI support (Ollama, OpenAI, Anthropic, Gemini, Groq), Human-in-the-Loop review workflows with active learning, and multi-tenant RBAC. Built in under a year. Deployed internally at DSWD Philippines.',
+    tags: ['Python', 'FastAPI', 'React', 'PostgreSQL', 'pgvector', 'Redis', 'MinIO', 'Ollama', 'Docker'],
+    demoUrl: '/demos',
+  },
+  {
+    title: 'Lo-CADIS Sprout — IoT Location & Asset Tracking',
+    description: 'Real-time IoT monitoring platform with MQTT ingestion, ESP32/Wemos firmware, TimescaleDB time-series storage, automated alerting, and multi-tenant farm management. Originated at UPLB (2018-2019), revived and modernized.',
+    tags: ['FastAPI', 'React', 'MQTT', 'ESP32', 'TimescaleDB', 'Celery', 'Docker'],
+    repoUrl: 'https://github.com/KaijuBytes/locadis',
+  },
+  {
+    title: 'Business Lookup AI',
+    description: 'Local LLM-powered assistant for business search. Uses Ollama for on-prem inference with FAISS vector similarity search. Demonstrates data sovereignty and zero-cost AI inference.',
+    tags: ['Python', 'Ollama', 'FAISS', 'LLM'],
+    repoUrl: 'https://github.com/KaijuBytes/business-lookup-AI',
+  },
+  {
+    title: 'NexGen — ERP with AI Task Summarization',
+    description: 'Enterprise Resource Planning system built on the Frappe framework with AI-powered task summarization using Ollama. Integrates LLM capabilities into business workflow management.',
+    tags: ['Python', 'Frappe', 'Ollama', 'ERP'],
+    repoUrl: 'https://github.com/KaijuBytes/nexgen-public',
+  },
+  {
+    title: 'n8n Workflow Automations',
+    description: 'Collection of self-hosted n8n workflow automations running via Docker. Demonstrates workflow design, API integration, and process automation patterns.',
+    tags: ['n8n', 'Docker', 'Automation'],
+    repoUrl: 'https://github.com/KaijuBytes/n8n-workflows',
+  },
+  {
+    title: 'NexHRMS — HR & Payroll System',
+    description: 'Open-source Human Resource Management System with payroll processing, employee records, and attendance tracking built on the Frappe framework.',
+    tags: ['Python', 'Frappe', 'HR', 'Payroll'],
+    repoUrl: 'https://github.com/KaijuBytes/NexHrms',
+  },
+];
+---
+
+<BaseLayout title="Projects" description="Portfolio of AI, full-stack, and IoT projects by Orlando Martinez.">
+  <section class="py-12">
+    <h1 class="text-3xl font-bold mb-4" style="color: var(--color-text);">Projects</h1>
+    <p class="text-lg mb-10" style="color: var(--color-muted);">
+      Production systems, open-source tools, and AI experiments. From enterprise document processing
+      to IoT tracking to workflow automation.
+    </p>
+    <div class="grid gap-6 md:grid-cols-2">
+      {projects.map(project => (
+        <ProjectCard {...project} />
+      ))}
+    </div>
+  </section>
+</BaseLayout>

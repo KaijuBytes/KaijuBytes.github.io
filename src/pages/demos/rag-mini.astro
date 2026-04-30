@@ -1,0 +1,18 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import RagMini from '../../components/demos/RagMini';
+---
+
+<BaseLayout title="RAG Mini Demo" description="Simple RAG Q&A pipeline with document retrieval and answer generation.">
+  <section class="py-12">
+    <div class="mb-8">
+      <a href="/demos" class="text-sm font-medium" style="color: var(--color-accent);">&larr; Back to Demos</a>
+      <h1 class="text-3xl font-bold mt-2" style="color: var(--color-text);">RAG Mini</h1>
+      <p class="text-lg mt-2" style="color: var(--color-muted);">Simple Retrieval-Augmented Generation pipeline. Ask questions about sample documents and see how chunks are retrieved and answers are generated.</p>
+      <div class="mt-4 px-4 py-3 rounded-lg text-sm" style="background-color: var(--color-surface); border: 1px solid var(--color-border); color: var(--color-muted);">
+        <strong style="color: var(--color-text);">Simulated demo.</strong> Chunk retrieval uses keyword matching to approximate vector similarity search. Answers are pre-written for common questions. The real IDP System uses pgvector embeddings for similarity search and live LLM generation for freeform answers.
+      </div>
+    </div>
+    <RagMini client:load />
+  </section>
+</BaseLayout>
