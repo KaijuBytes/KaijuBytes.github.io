@@ -3,33 +3,35 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 ---
 
 <BaseLayout
-  title="KaijuFinance Privacy Policy"
-  description="Privacy Policy for KaijuFinance — a local-first personal finance app for Android by KaijuBytes."
+  title="Aninaya Privacy Policy"
+  description="Privacy Policy for Aninaya — a local-first personal finance app for Android by KaijuBytes."
 >
   <section class="py-10">
     <div class="max-w-3xl mx-auto">
-      <h1 class="text-3xl font-bold mb-2" style="color: var(--color-text);">KaijuFinance Privacy Policy</h1>
+      <h1 class="text-3xl font-bold mb-2" style="color: var(--color-text);">Aninaya Privacy Policy</h1>
       <p class="text-sm mb-6" style="color: var(--color-muted);">
-        <strong>Effective date:</strong> May 1, 2026 &nbsp;·&nbsp; <strong>Last updated:</strong> May 1, 2026
+        <strong>Effective date:</strong> May 4, 2026 &nbsp;·&nbsp; <strong>Last updated:</strong> May 4, 2026
       </p>
 
       <div class="rounded-md p-4 mb-8 border-l-4" style="background: var(--color-surface); border-color: var(--color-accent);">
-        <strong>Short version:</strong> KaijuFinance processes all of your financial data
+        <strong>Short version:</strong> Aninaya processes all of your financial data
         <em>entirely on your device</em>. KaijuBytes does not operate any servers, does not
         collect your financial information, and is not a Personal Information Controller (PIC)
-        under Philippine Republic Act 10173 (Data Privacy Act of 2012).
+        under Philippine Republic Act 10173 (Data Privacy Act of 2012). Aninaya was previously
+        published under the name <em>KaijuFinance</em>; the product, publisher, and privacy posture
+        are unchanged.
       </div>
 
       <h2 class="text-xl font-semibold mt-8 mb-3" style="color: var(--color-text);">1. Who we are</h2>
       <p>
-        KaijuFinance is developed and published by <strong>KaijuBytes</strong> (sole trader,
+        Aninaya is developed and published by <strong>KaijuBytes</strong> (sole trader,
         Orlando G. Martinez / Lanz, Philippines). Contact:
         <a href="mailto:support@kaijubytes.dev" style="color: var(--color-accent);">support@kaijubytes.dev</a>.
       </p>
 
-      <h2 class="text-xl font-semibold mt-8 mb-3" style="color: var(--color-text);">2. What data KaijuFinance collects — and where it stays</h2>
+      <h2 class="text-xl font-semibold mt-8 mb-3" style="color: var(--color-text);">2. What data Aninaya collects — and where it stays</h2>
       <p class="mb-4">
-        All personal and financial data you enter or import into KaijuFinance is stored
+        All personal and financial data you enter or import into Aninaya is stored
         <em>exclusively on your device</em> in an encrypted local database (SQLite with
         SQLCipher AES-256 encryption, keyed by your passcode). KaijuBytes never transmits,
         stores, or has access to your financial data.
@@ -130,7 +132,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
       <h2 class="text-xl font-semibold mt-8 mb-3" style="color: var(--color-text);">4. Google AdMob (Free tier only)</h2>
       <p class="mb-3">
-        The Free tier of KaijuFinance displays advertisements served by <strong>Google AdMob</strong>.
+        The Free tier of Aninaya displays advertisements served by <strong>Google AdMob</strong>.
         Google is the data controller for ad-targeting data collected through AdMob. KaijuBytes does
         not access this data. Google's privacy practices are governed by the
         <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" style="color: var(--color-accent);">Google Privacy Policy</a>.
@@ -149,23 +151,43 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
       <ul class="list-disc pl-6 space-y-2 mb-3">
         <li><strong>MLKit Text Recognition</strong> — Google's on-device OCR API. Text is processed locally; see <a href="https://developers.google.com/ml-kit/terms" target="_blank" rel="noopener noreferrer" style="color: var(--color-accent);">MLKit Terms</a>.</li>
         <li><strong>MiniLM (sentence-transformers/all-MiniLM-L6-v2)</strong> — Open-source model (Apache 2.0), runs entirely on-device.</li>
-        <li><strong>Gemma 3n E2B / Qwen2.5-0.5B</strong> — Downloaded from HuggingFace or a KaijuBytes CDN when you first use Smart Scan on a supported device. These models run locally. No receipt text is sent to any server during inference.</li>
+        <li><strong>Qwen 2.5 (0.5B / 1.5B)</strong> — Apache 2.0 small language model, downloaded from a KaijuBytes-hosted CDN the first time you use Smart Scan on a supported device. The model runs locally; no receipt text is sent to any server during inference. The variant chosen depends on your device tier.</li>
       </ul>
       <p>
-        Gemma 3n is governed by
-        <a href="https://ai.google.dev/gemma/terms" target="_blank" rel="noopener noreferrer" style="color: var(--color-accent);">Google's Gemma Terms of Use</a>;
-        you must accept those terms before the model is downloaded. Qwen2.5 is Apache 2.0.
+        Qwen 2.5 is licensed under Apache 2.0. The model file is downloaded over
+        HTTPS and verified by checksum before use; the download itself sends no
+        personal data beyond the standard HTTP request your device would make for
+        any file.
       </p>
 
       <h2 class="text-xl font-semibold mt-8 mb-3" style="color: var(--color-text);">6. Data you export</h2>
       <p>
-        When you use the backup or vault export features, KaijuFinance writes an encrypted file
+        When you use the backup or vault export features, Aninaya writes an encrypted file
         to your device (or a location you choose, such as OneDrive or a local folder). KaijuBytes
         does not receive this file. You are responsible for the security of any file you export
         to a cloud storage provider.
       </p>
 
-      <h2 class="text-xl font-semibold mt-8 mb-3" style="color: var(--color-text);">7. In-app purchases</h2>
+      <h2 class="text-xl font-semibold mt-8 mb-3" style="color: var(--color-text);">7. Aninaya Bridge (phone↔phone LAN sync)</h2>
+      <p class="mb-3">
+        Aninaya Bridge is an optional feature that lets two or more of <em>your own</em> devices
+        keep their finance data in sync over your local Wi-Fi network. It is strictly
+        peer-to-peer:
+      </p>
+      <ul class="list-disc pl-6 space-y-2 mb-3">
+        <li>Devices discover each other via mDNS (<code>_aninaya-bridge._tcp</code>) on the same Wi-Fi network.</li>
+        <li>Pairing requires you to scan a QR code or enter a 6-digit code shown on the other device.</li>
+        <li>All sync traffic is encrypted end-to-end with mutual-TLS plus AES-256-GCM, using ed25519 keys generated on first pairing.</li>
+        <li>Sync only runs while the app is in the foreground on both devices.</li>
+        <li>No sync data ever leaves your local network. KaijuBytes operates no relay, sync, or backup servers and cannot read your synchronised data.</li>
+      </ul>
+      <p class="mb-3">
+        Bridge is included free for two paired devices. Linking a third or further device
+        requires a Pro subscription. Pairing can be revoked from <em>Settings → Bridge →
+        Paired devices</em> at any time, which immediately invalidates that peer's keys.
+      </p>
+
+      <h2 class="text-xl font-semibold mt-8 mb-3" style="color: var(--color-text);">8. In-app purchases</h2>
       <p>
         Pro subscriptions are processed entirely by <strong>Google Play Billing</strong>.
         KaijuBytes receives only an anonymised purchase token from Google; we do not see your
@@ -173,20 +195,20 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
         <a href="https://payments.google.com/payments/apis-secure/u/0/get_legal_document?ldo=0&ldt=privacynotice" target="_blank" rel="noopener noreferrer" style="color: var(--color-accent);">Google Payments Privacy Notice</a>.
       </p>
 
-      <h2 class="text-xl font-semibold mt-8 mb-3" style="color: var(--color-text);">8. Children's privacy</h2>
+      <h2 class="text-xl font-semibold mt-8 mb-3" style="color: var(--color-text);">9. Children's privacy</h2>
       <p>
-        KaijuFinance is not directed at children under 13 (or under 16 in the EU).
+        Aninaya is not directed at children under 13 (or under 16 in the EU).
         We do not knowingly collect data from children.
       </p>
 
-      <h2 class="text-xl font-semibold mt-8 mb-3" style="color: var(--color-text);">9. Changes to this policy</h2>
+      <h2 class="text-xl font-semibold mt-8 mb-3" style="color: var(--color-text);">10. Changes to this policy</h2>
       <p>
         If we add server-side features in a future version (e.g. cloud sync, cloud Smart Scan),
         we will update this policy and notify you via an in-app banner before those features go
         live. The updated policy will be posted at this URL with a new effective date.
       </p>
 
-      <h2 class="text-xl font-semibold mt-8 mb-3" style="color: var(--color-text);">10. Contact</h2>
+      <h2 class="text-xl font-semibold mt-8 mb-3" style="color: var(--color-text);">11. Contact</h2>
       <p>
         Questions or concerns about this policy:<br />
         <a href="mailto:support@kaijubytes.dev" style="color: var(--color-accent);">support@kaijubytes.dev</a><br />
@@ -195,7 +217,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
       <footer class="mt-12 pt-6 text-sm" style="border-top: 1px solid var(--color-border); color: var(--color-muted);">
         © 2026 Orlando G. Martinez (Lanz) / KaijuBytes. All rights reserved.
-        KaijuFinance is not a regulated financial adviser. Information in the app
+        Aninaya is not a regulated financial adviser. Information in the app
         is for personal budgeting and planning purposes only.
       </footer>
     </div>
