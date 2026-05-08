@@ -10,7 +10,8 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     <div class="max-w-3xl mx-auto">
       <h1 class="text-3xl font-bold mb-2" style="color: var(--color-text);">Aninaya Privacy Policy</h1>
       <p class="text-sm mb-6" style="color: var(--color-muted);">
-        <strong>Effective date:</strong> May 4, 2026 &nbsp;·&nbsp; <strong>Last updated:</strong> May 4, 2026
+        <strong>Effective date:</strong> May 10, 2026 &nbsp;·&nbsp; <strong>Last updated:</strong> May 10, 2026 &nbsp;·&nbsp;
+        <a href="/aninaya/terms-of-service/" style="color: var(--color-accent);">Terms of Service</a>
       </p>
 
       <div class="rounded-md p-4 mb-8 border-l-4" style="background: var(--color-surface); border-color: var(--color-accent);">
@@ -62,16 +63,6 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
               <td class="border px-3 py-2" style="border-color: var(--color-border);">No</td>
             </tr>
             <tr style="background: var(--color-surface);">
-              <td class="border px-3 py-2" style="border-color: var(--color-border);">Bank and e-wallet notification text</td>
-              <td class="border px-3 py-2" style="border-color: var(--color-border);">Processed on-device; transaction proposals stored locally</td>
-              <td class="border px-3 py-2" style="border-color: var(--color-border);">No</td>
-            </tr>
-            <tr>
-              <td class="border px-3 py-2" style="border-color: var(--color-border);">Gmail message data (if email ingest is enabled)</td>
-              <td class="border px-3 py-2" style="border-color: var(--color-border);">Read client-side; OAuth token stored in Android Keystore</td>
-              <td class="border px-3 py-2" style="border-color: var(--color-border);">No — Google's servers serve the email; KaijuBytes never sees it</td>
-            </tr>
-            <tr style="background: var(--color-surface);">
               <td class="border px-3 py-2" style="border-color: var(--color-border);">SALN declarations</td>
               <td class="border px-3 py-2" style="border-color: var(--color-border);">On-device database; PDF/DOCX exported to your device</td>
               <td class="border px-3 py-2" style="border-color: var(--color-border);">No</td>
@@ -107,19 +98,9 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
               <td class="border px-3 py-2" style="border-color: var(--color-border);">Yes — gallery picker will not work; camera path unaffected</td>
             </tr>
             <tr>
-              <td class="border px-3 py-2" style="border-color: var(--color-border);">Notification Listener (BIND_NOTIFICATION_LISTENER_SERVICE)</td>
-              <td class="border px-3 py-2" style="border-color: var(--color-border);">Detect bank and e-wallet transaction notifications from apps like BPI Mobile, BDO, GCash, Maya, and GoTyme — so you don't have to type every transaction manually. Notification text is parsed on-device and immediately discarded after a transaction proposal is created.</td>
-              <td class="border px-3 py-2" style="border-color: var(--color-border);">Yes — automatic transaction detection will not work; manual entry unaffected. You can revoke at any time: Settings → Notification Access.</td>
-            </tr>
-            <tr style="background: var(--color-surface);">
               <td class="border px-3 py-2" style="border-color: var(--color-border);">Internet</td>
-              <td class="border px-3 py-2" style="border-color: var(--color-border);">Required for: (a) downloading optional on-device AI models (Gemma 3n, Qwen2.5) on first use; (b) refreshing exchange rates (read-only public API, no PII sent); (c) Google AdMob (Free tier). No financial data is ever sent over the network.</td>
+              <td class="border px-3 py-2" style="border-color: var(--color-border);">Required for: (a) downloading optional on-device AI models (Qwen2.5, Qwen3, SmolLM) on first use; (b) refreshing exchange rates (read-only public API, no PII sent); (c) Google AdMob (Free tier); (d) optional Bring-Your-Own AI requests to a third-party endpoint you configure. No financial data is sent to KaijuBytes servers.</td>
               <td class="border px-3 py-2" style="border-color: var(--color-border);">No — Android does not allow per-app Internet permission denial on modern versions</td>
-            </tr>
-            <tr>
-              <td class="border px-3 py-2" style="border-color: var(--color-border);">Google Sign-In (Gmail scope: gmail.readonly)</td>
-              <td class="border px-3 py-2" style="border-color: var(--color-border);">Optional: parse bank confirmation emails for automatic transaction entry. Token stored in Android Keystore. KaijuBytes cannot read your Gmail — the token grants the app read-only access from your device only.</td>
-              <td class="border px-3 py-2" style="border-color: var(--color-border);">Yes — you must explicitly connect your Gmail account; the feature is opt-in</td>
             </tr>
             <tr style="background: var(--color-surface);">
               <td class="border px-3 py-2" style="border-color: var(--color-border);">USE_BIOMETRIC / USE_FINGERPRINT</td>
@@ -158,6 +139,59 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
         HTTPS and verified by checksum before use; the download itself sends no
         personal data beyond the standard HTTP request your device would make for
         any file.
+      </p>
+
+      <h2 class="text-xl font-semibold mt-8 mb-3" style="color: var(--color-text);">5a. On-device AI compute notice</h2>
+      <p class="mb-3">
+        Because the AI runs locally on your phone, it uses your device's CPU/GPU.
+        During use the phone may warm up, and AI Chat replies can take anywhere from
+        a few seconds to a couple of minutes depending on your device tier and the
+        length of the reply. This is the cost of keeping your data on-device — not a
+        defect. Indicative ranges:
+      </p>
+      <ul class="list-disc pl-6 space-y-1 mb-3">
+        <li><strong>Tier S</strong> (Snapdragon 8 Gen 3/4, flagship 2024+): about 10–30 seconds for a paragraph reply.</li>
+        <li><strong>Tier A</strong> (Snapdragon 8 Gen 2, flagship 2023): about 30–60 seconds.</li>
+        <li><strong>Tier B</strong> (Snapdragon 7-series, mid-range): around 1–2 minutes.</li>
+        <li><strong>Tier C/D</strong> (entry-level / older): can take 2–5 minutes; the smallest model with template fallback is used to keep responses tractable.</li>
+      </ul>
+      <p class="mb-3">
+        You will see an in-app notice acknowledging this on first use of AI Chat,
+        and Aninaya offers a "Run in background" option so you don't have to keep
+        the screen on while waiting.
+      </p>
+
+      <h2 class="text-xl font-semibold mt-8 mb-3" style="color: var(--color-text);">5b. Bring-Your-Own AI endpoints (opt-in)</h2>
+      <p class="mb-3">
+        If you connect a third-party AI provider in <em>Settings → Integrations</em>
+        (your own OpenAI key, Anthropic key, hosted Ollama, LM Studio, or any
+        OpenAI-compatible endpoint), Aninaya sends a <strong>financial context summary</strong>
+        to that provider for each chat turn. The data leaves your device the moment you
+        press Send. KaijuBytes never sees this traffic.
+      </p>
+      <p class="mb-3">The summary may include:</p>
+      <ul class="list-disc pl-6 space-y-1 mb-3">
+        <li>Account names + balances</li>
+        <li>Net worth, income, expense, and savings rate</li>
+        <li>Debt detail (credit limits, utilization, monthly APR, minimum payment)</li>
+        <li>Salary average and frequency (auto-detected from your transactions)</li>
+        <li>Employer name (only if you set one in Settings → Capture &amp; Compliance)</li>
+        <li>Active goals and recurring bills</li>
+        <li>Active travel trips and trip spending</li>
+      </ul>
+      <p class="mb-3">
+        No receipt photos, raw transactions, contact info, or passcode material are
+        sent. Aninaya will <strong>refuse to send</strong> to a host you have not
+        explicitly approved — toggling on "endpoint chat" with a new base URL prompts
+        a per-host consent dialog. Loopback addresses (<code>localhost</code>,
+        <code>127.0.0.1</code>, <code>::1</code>) are treated as on-device and skip
+        the consent prompt.
+      </p>
+      <p class="mb-3">
+        You are responsible for understanding the receiving provider's privacy posture
+        before enabling BYO AI. KaijuBytes makes no representations about how those
+        providers handle the data you send them. You can revoke consent for a specific
+        host at any time in <em>Settings → Integrations → Approved AI hosts</em>.
       </p>
 
       <h2 class="text-xl font-semibold mt-8 mb-3" style="color: var(--color-text);">6. Data you export</h2>
