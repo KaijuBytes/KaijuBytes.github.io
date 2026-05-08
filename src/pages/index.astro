@@ -4,6 +4,13 @@ import ProjectCard from '../components/ProjectCard.astro';
 
 const featuredProjects = [
   {
+    title: 'Aninaya',
+    description: 'Local-first personal finance app for Filipinos. On-device AI receipt OCR, SALN module for government employees, AI Planner with optional Bring-Your-Own AI endpoint, encrypted vault export, and phone-to-phone LAN sync. Published on Google Play.',
+    tags: ['Flutter', 'Drift', 'Riverpod', 'Qwen 2.5', 'On-device AI', 'Android'],
+    iconUrl: '/aninaya/icon.png',
+    infoUrl: '/aninaya/',
+  },
+  {
     title: 'IDP System',
     description: 'Enterprise RAG-based document extraction with 14-step batch pipeline, multi-provider AI (5 providers), Human-in-the-Loop review, and multi-tenant RBAC. 44 backend services, 30 API routers, 56 test files.',
     tags: ['Python', 'FastAPI', 'React', 'PostgreSQL', 'pgvector', 'Ollama', 'Docker'],
@@ -14,12 +21,6 @@ const featuredProjects = [
     description: 'Real-time IoT monitoring platform with MQTT ingestion, ESP32/Wemos firmware, TimescaleDB time-series storage, automated alerting, and multi-tenant farm management.',
     tags: ['FastAPI', 'React', 'MQTT', 'ESP32', 'TimescaleDB', 'Docker'],
     repoUrl: 'https://github.com/KaijuBytes/locadis',
-  },
-  {
-    title: 'Business Lookup AI',
-    description: 'Local LLM-powered assistant for business search using Ollama. Demonstrates on-prem AI inference with semantic search capabilities.',
-    tags: ['Python', 'Ollama', 'FAISS', 'LLM'],
-    repoUrl: 'https://github.com/KaijuBytes/business-lookup-AI',
   },
 ];
 ---
