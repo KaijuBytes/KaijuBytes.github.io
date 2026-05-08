@@ -1,0 +1,179 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const PLAY_STORE_URL = 'https://play.google.com/store/apps/details?id=io.kaijubytes.aninaya';
+---
+
+<BaseLayout
+  title="Aninaya"
+  description="Aninaya — local-first personal finance app for Filipinos. On-device AI receipt OCR, SALN module for government employees, and Bring-Your-Own AI Chat. Your data never leaves your phone."
+>
+  <section class="py-12 sm:py-20">
+    <div class="max-w-3xl">
+      <p class="text-sm font-medium mb-4" style="color: var(--color-accent);">Personal Finance · Android · Philippines</p>
+      <h1 class="text-4xl sm:text-5xl font-bold tracking-tight mb-6" style="color: var(--color-text);">
+        Aninaya<br />
+        <span style="color: var(--color-muted); font-size: 0.7em; font-weight: 500;">Clarity for your Dreams.</span>
+      </h1>
+      <p class="text-lg leading-relaxed mb-8" style="color: var(--color-muted);">
+        A local-first personal finance app built for Filipinos. Track expenses,
+        scan receipts with on-device AI, plan travel budgets, and get guidance
+        from an AI planner that runs on your phone. Your data never leaves
+        this device unless you say so.
+      </p>
+      <div class="flex flex-wrap gap-4">
+        <a
+          href={PLAY_STORE_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center px-6 py-3 rounded-lg text-sm font-medium transition-colors"
+          style="background-color: var(--color-accent); color: #ffffff;"
+        >
+          Get on Google Play &rarr;
+        </a>
+        <a
+          href="/aninaya/privacy-policy/"
+          class="inline-flex items-center px-6 py-3 rounded-lg text-sm font-medium transition-colors"
+          style="border: 1px solid var(--color-border); color: var(--color-text);"
+        >
+          Privacy Policy
+        </a>
+        <a
+          href="/aninaya/terms-of-service/"
+          class="inline-flex items-center px-6 py-3 rounded-lg text-sm font-medium transition-colors"
+          style="border: 1px solid var(--color-border); color: var(--color-text);"
+        >
+          Terms of Service
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-10">
+    <div class="rounded-md p-5 border-l-4" style="background: var(--color-surface); border-color: var(--color-accent);">
+      <strong>Privacy posture, plain English.</strong> Aninaya processes all of
+      your financial data <em>entirely on your device</em>. KaijuBytes does not
+      operate any servers, does not collect your financial information, and
+      is not a Personal Information Controller under Philippine RA 10173. AI
+      features run on your phone by default; if you connect a third-party AI
+      provider via Bring-Your-Own AI, you control that data flow yourself.
+    </div>
+  </section>
+
+  <section class="py-10">
+    <h2 class="text-2xl font-bold mb-8" style="color: var(--color-text);">What's inside</h2>
+    <div class="grid gap-5 md:grid-cols-2">
+      <article class="rounded-lg p-5" style="background: var(--color-surface); border: 1px solid var(--color-border);">
+        <h3 class="text-lg font-semibold mb-2" style="color: var(--color-text);">On-device receipt scan</h3>
+        <p class="text-sm" style="color: var(--color-muted);">
+          Camera or gallery import. ML Kit OCR + on-device Qwen 2.5 small
+          language model extracts merchant, date, total, items. 22 PH-merchant
+          templates for Jollibee, SM, Robinsons, Mercury Drug, Watsons, etc.
+          No receipt photo or text is ever sent to KaijuBytes servers.
+        </p>
+      </article>
+      <article class="rounded-lg p-5" style="background: var(--color-surface); border: 1px solid var(--color-border);">
+        <h3 class="text-lg font-semibold mb-2" style="color: var(--color-text);">SALN module (government employees)</h3>
+        <p class="text-sm" style="color: var(--color-muted);">
+          Aggregates accounts and assets into a CSC-compliant Statement of
+          Assets, Liabilities and Net Worth. Exports Annex A / B / C as PDF
+          and DOCX from the official 2025 CSC template. Aninaya is
+          <strong>not</strong> an official CSC product — accuracy is your
+          responsibility, but the prep work is automated.
+        </p>
+      </article>
+      <article class="rounded-lg p-5" style="background: var(--color-surface); border: 1px solid var(--color-border);">
+        <h3 class="text-lg font-semibold mb-2" style="color: var(--color-text);">AI Planner & Chat (on-device)</h3>
+        <p class="text-sm" style="color: var(--color-muted);">
+          Net-worth snapshot, debt-payoff coach, monthly budget review, and
+          natural-language chat. Runs Qwen 2.5 / Qwen3 / SmolLM on your phone
+          by default. Bring your own AI endpoint (OpenAI, Anthropic, Ollama,
+          LM Studio) if you want bigger models — explicit per-host consent
+          required first.
+        </p>
+      </article>
+      <article class="rounded-lg p-5" style="background: var(--color-surface); border: 1px solid var(--color-border);">
+        <h3 class="text-lg font-semibold mb-2" style="color: var(--color-text);">Travel mode + multi-currency</h3>
+        <p class="text-sm" style="color: var(--color-muted);">
+          Tag expenses to a trip with country and local currency. FX rates
+          are fetched from a public API at save time and frozen on each
+          transaction so historical reports stay correct even when rates
+          drift. Per-trip budget reports.
+        </p>
+      </article>
+      <article class="rounded-lg p-5" style="background: var(--color-surface); border: 1px solid var(--color-border);">
+        <h3 class="text-lg font-semibold mb-2" style="color: var(--color-text);">Aninaya Bridge</h3>
+        <p class="text-sm" style="color: var(--color-muted);">
+          Sync between your own phones over local Wi-Fi. mDNS discovery,
+          QR-code pairing, end-to-end encrypted with mutual TLS + AES-256-GCM.
+          No relay server. KaijuBytes never sees your sync traffic.
+        </p>
+      </article>
+      <article class="rounded-lg p-5" style="background: var(--color-surface); border: 1px solid var(--color-border);">
+        <h3 class="text-lg font-semibold mb-2" style="color: var(--color-text);">Encrypted vault export</h3>
+        <p class="text-sm" style="color: var(--color-muted);">
+          Backup your data to a <code>.kaijuvault</code> file (AES-256-GCM,
+          passphrase-protected). Markdown vault export for plain-text
+          archives. Restore on any Aninaya install with the passphrase.
+          You own the file.
+        </p>
+      </article>
+    </div>
+  </section>
+
+  <section class="py-10">
+    <h2 class="text-2xl font-bold mb-6" style="color: var(--color-text);">Tiers</h2>
+    <p class="text-sm mb-6" style="color: var(--color-muted);">
+      Free, Ads-Free, Pro, and Elite/Family tiers. Subscriptions are billed
+      through Google Play Billing. Current prices are shown on the upgrade
+      screen inside the app and on your Google Play subscription page —
+      managed by Google Play and may change.
+    </p>
+    <div class="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+      <article class="rounded-lg p-5" style="background: var(--color-surface); border: 1px solid var(--color-border);">
+        <h3 class="text-base font-semibold mb-1" style="color: var(--color-text);">Free</h3>
+        <p class="text-xs" style="color: var(--color-muted);">
+          Full ledger, manual entry, on-device receipt AI, SALN module,
+          encrypted vault export. Ad-supported.
+        </p>
+      </article>
+      <article class="rounded-lg p-5" style="background: var(--color-surface); border: 1px solid var(--color-border);">
+        <h3 class="text-base font-semibold mb-1" style="color: var(--color-text);">Ads-Free</h3>
+        <p class="text-xs" style="color: var(--color-muted);">
+          Same feature set as Free, no ads. Pro AI features stay locked.
+        </p>
+      </article>
+      <article class="rounded-lg p-5" style="background: var(--color-surface); border: 1px solid var(--color-border);">
+        <h3 class="text-base font-semibold mb-1" style="color: var(--color-text);">Pro</h3>
+        <p class="text-xs" style="color: var(--color-muted);">
+          AI Planner, AI Chat with conversation memory, lending hub
+          advanced features, custom institution colors, auto-export,
+          Bring-Your-Own AI endpoint. No ads.
+        </p>
+      </article>
+      <article class="rounded-lg p-5" style="background: var(--color-surface); border: 1px solid var(--color-border);">
+        <h3 class="text-base font-semibold mb-1" style="color: var(--color-text);">Elite / Family</h3>
+        <p class="text-xs" style="color: var(--color-muted);">
+          Everything in Pro plus Google Play Family Library sharing for up
+          to 5 family members.
+        </p>
+      </article>
+    </div>
+  </section>
+
+  <section class="py-10">
+    <h2 class="text-2xl font-bold mb-4" style="color: var(--color-text);">Legal & support</h2>
+    <ul class="list-disc pl-6 space-y-2" style="color: var(--color-muted);">
+      <li><a href="/aninaya/privacy-policy/" style="color: var(--color-accent);">Privacy Policy</a> — what data Aninaya collects, where it stays, and the BYO AI consent posture.</li>
+      <li><a href="/aninaya/terms-of-service/" style="color: var(--color-accent);">Terms of Service & EULA</a> — subscription terms, AI disclaimers, governing law.</li>
+      <li>Support: <a href="mailto:kaijubytes.dev@gmail.com" style="color: var(--color-accent);">kaijubytes.dev@gmail.com</a></li>
+      <li>Developer: <a href="https://github.com/KaijuBytes" target="_blank" rel="noopener noreferrer" style="color: var(--color-accent);">KaijuBytes on GitHub</a> (Orlando G. Martinez / Lanz)</li>
+    </ul>
+  </section>
+
+  <footer class="mt-12 pt-6 text-sm" style="border-top: 1px solid var(--color-border); color: var(--color-muted);">
+    © 2026 Orlando G. Martinez (Lanz) / KaijuBytes. All rights reserved.
+    Aninaya is not a regulated financial adviser. Information in the app
+    is for personal budgeting and planning purposes only.
+  </footer>
+</BaseLayout>
