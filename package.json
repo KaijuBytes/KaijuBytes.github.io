@@ -9,7 +9,9 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "check": "astro check",
+    "lint": "astro check && tsc --noEmit"
   },
   "dependencies": {
     "@astrojs/react": "^5.0.3",
@@ -25,5 +27,9 @@
     "react-dom": "^19.2.5",
     "tailwindcss": "^4.2.2",
     "tesseract.js": "^7.0.0"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.4",
+    "typescript": "^5.7.3"
   }
 }

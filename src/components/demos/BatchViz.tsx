@@ -561,7 +561,7 @@ export default function BatchViz() {
             ...doc,
             currentStage: nextStage,
             status: 'processing' as const,
-            route: doc.confidence >= CONFIDENCE_THRESHOLD ? 'auto' : 'hitl',
+            route: doc.confidence >= CONFIDENCE_THRESHOLD ? 'auto' as const : 'hitl' as const,
             stageHistory: [...doc.stageHistory, nextStage],
           };
         });
