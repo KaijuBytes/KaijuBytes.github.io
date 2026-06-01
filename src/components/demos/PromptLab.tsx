@@ -239,12 +239,11 @@ export default function PromptLab() {
             Prompt A
           </label>
           <textarea
-            className="w-full h-32 p-3 rounded-lg text-sm font-mono resize-none focus:outline-none focus:ring-2"
+            className="w-full h-32 p-3 rounded-lg text-sm font-mono resize-none focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)]"
             style={{
               backgroundColor: 'var(--color-surface)',
               color: 'var(--color-text)',
               border: '1px solid var(--color-border)',
-              focusRingColor: 'var(--color-accent)',
             }}
             value={promptA}
             onChange={(e) => setPromptA(e.target.value)}
