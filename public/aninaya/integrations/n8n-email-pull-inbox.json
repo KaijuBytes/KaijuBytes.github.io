@@ -1,0 +1,72 @@
+{
+  "name": "Aninaya — Gmail bills pull-inbox",
+  "nodes": [
+    {
+      "parameters": {
+        "content": "## Aninaya pull-inbox\n\n1. Connect Gmail on the trigger and tune the search filter.\n2. Put a long random secret in **Check secret** (replace CHANGE-ME).\n3. Activate, copy the Webhook node's **production URL**.\n4. Aninaya → Settings → Integrations → *Inbound webhook inbox URL*: paste the URL, set the same secret, enable the secret header.\n5. Tap *Pull now* in Aninaya — parsed bills land in the review inbox.\n\nContract docs: https://kaijubytes.github.io/aninaya/integrations/",
+        "height": 320,
+        "width": 380
+      },
+      "id": "note-1",
+      "name": "How to use",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [0, 0]
+    },
+    {
+      "parameters": {
+        "pollTimes": { "item": [{ "mode": "everyX", "value": 15, "unit": "minutes" }] },
+        "filters": { "q": "subject:(bill OR statement OR receipt) newer_than:7d" }
+      },
+      "id": "gmail-1",
+      "name": "Gmail Trigger",
+      "type": "n8n-nodes-base.gmailTrigger",
+      "typeVersion": 1.2,
+      "position": [220, 420]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Map each email into one Aninaya inbound item and stash it in\n// workflow static data (the zero-dependency 'inbox'). Tune the\n// amount/merchant parsing to your bills.\nconst staticData = $getWorkflowStaticData('global');\nstaticData.items = staticData.items ?? [];\n\nfor (const item of $input.all()) {\n  const subject = item.json.subject ?? '';\n  const snippet = item.json.snippet ?? '';\n  const text = `${subject} ${snippet}`;\n  // First peso-looking number, e.g. 1,299.50 or P1299.50.\n  const m = text.match(/(?:PHP|P|\\u20B1)?\\s?([0-9][0-9,]*\\.?[0-9]{0,2})/);\n  if (!m) continue;\n  const amount = Number(m[1].replace(/,/g, ''));\n  if (!amount || Number.isNaN(amount)) continue;\n\n  const entry = {\n    id: item.json.id,                       // Gmail message id = dedup key\n    source: 'n8n:gmail-bills',\n    type: 'outflow',\n    amount,\n    merchant: (item.json.from?.value?.[0]?.name) || subject.slice(0, 40) || 'Unknown',\n    title: subject.slice(0, 80),\n    notes: 'Parsed from Gmail via n8n',\n    created_at: item.json.date || new Date().toISOString(),\n  };\n  // Idempotent append — Aninaya dedups too, but keep the inbox tidy.\n  if (!staticData.items.some((x) => x.id === entry.id)) {\n    staticData.items.push(entry);\n  }\n}\n// Cap the inbox at the 100 most recent items.\nstaticData.items = staticData.items.slice(-100);\nreturn [{ json: { stored: staticData.items.length } }];"
+      },
+      "id": "code-parse-1",
+      "name": "Parse bill → item",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [460, 420]
+    },
+    {
+      "parameters": {
+        "httpMethod": "GET",
+        "path": "aninaya-inbox",
+        "responseMode": "lastNode",
+        "options": {}
+      },
+      "id": "webhook-1",
+      "name": "Aninaya polls here (GET)",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [220, 660],
+      "webhookId": "aninaya-inbox"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Verify the shared secret Aninaya sends on every poll, then answer\n// with the accumulated items in the documented contract shape.\nconst SECRET = 'CHANGE-ME'; // must match Aninaya Settings → Integrations\nconst headers = $input.first().json.headers ?? {};\nconst got = headers['x-kaiju-webhook-secret'];\nif (!got || got !== SECRET) {\n  // Never echo the expected secret in the response.\n  return [{ json: { error: 'unauthorized' }, pairedItem: 0 }];\n}\nconst staticData = $getWorkflowStaticData('global');\nreturn [{ json: { schema_version: '1', items: staticData.items ?? [] } }];"
+      },
+      "id": "code-respond-1",
+      "name": "Check secret + respond",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [460, 660]
+    }
+  ],
+  "connections": {
+    "Gmail Trigger": {
+      "main": [[{ "node": "Parse bill → item", "type": "main", "index": 0 }]]
+    },
+    "Aninaya polls here (GET)": {
+      "main": [[{ "node": "Check secret + respond", "type": "main", "index": 0 }]]
+    }
+  },
+  "settings": { "executionOrder": "v1" },
+  "pinData": {}
+}

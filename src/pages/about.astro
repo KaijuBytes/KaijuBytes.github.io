@@ -12,16 +12,22 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
       <div class="space-y-6 text-base leading-relaxed" style="color: var(--color-muted);">
         <p>
-          KaijuBytes is the engineering practice of an AI Specialist and full-stack systems engineer based in
-          the Philippines, working at the Department of Social Welfare
-          and Development (DSWD) to design and deploy intelligent document processing systems
-          for government operations.
+          KaijuBytes is the engineering practice of an AI Software Engineer based in the Philippines —
+          someone who ships AI features end to end, from architecture through implementation to
+          production. Currently at the Department of Social Welfare and Development (DSWD), designing and
+          deploying intelligent document processing systems for government operations.
         </p>
         <p>
           My main project, the IDP System, is a production enterprise platform with multi-provider
           AI extraction, RAG-based document Q&A, human-in-the-loop review workflows, and multi-tenant
           RBAC. I built it as a solo developer using AI-augmented development — architecting the system
           myself and orchestrating AI-assisted implementation to achieve the velocity of a small team.
+        </p>
+        <p>
+          Outside government work, I build under the KaijuBytes brand: Aninaya, a local-first Android
+          personal-finance app published on Google Play with on-device AI receipt extraction; and Atlas,
+          a voice + text multi-agent assistant with an offline-first architecture. The same
+          architecture-first, empirically-validated approach runs through all of it.
         </p>
         <p>
           Before DSWD, I was a Computer Programmer at the Department of Information and Communications
@@ -37,7 +43,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         <div class="grid gap-4 sm:grid-cols-2">
           <div class="p-4 rounded-lg" style="background-color: var(--color-surface); border: 1px solid var(--color-border);">
             <h3 class="text-sm font-semibold mb-2" style="color: var(--color-accent);">AI & Machine Learning</h3>
-            <p class="text-sm" style="color: var(--color-muted);">LLM Integration (Ollama, OpenAI, Anthropic, Gemini, Groq), RAG/pgvector, Prompt Engineering & A/B Testing, OCR (Tesseract, EasyOCR), Document AI, Active Learning, HITL Workflows</p>
+            <p class="text-sm" style="color: var(--color-muted);">LLM Integration (Ollama, OpenAI, Anthropic, Gemini, Groq), RAG/pgvector & sqlite-vec, Prompt Engineering & A/B Testing, OCR (Tesseract, EasyOCR), Document AI, Active Learning, HITL Workflows, Claude Agent SDK & MCP, On-device LLMs (Qwen, faster-whisper, Piper)</p>
           </div>
           <div class="p-4 rounded-lg" style="background-color: var(--color-surface); border: 1px solid var(--color-border);">
             <h3 class="text-sm font-semibold mb-2" style="color: var(--color-accent);">Backend</h3>
@@ -56,8 +62,12 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             <p class="text-sm" style="color: var(--color-muted);">Docker Compose, MinIO/S3, Kubernetes (Helm), Ansible, Linux, Azure, GCP</p>
           </div>
           <div class="p-4 rounded-lg" style="background-color: var(--color-surface); border: 1px solid var(--color-border);">
+            <h3 class="text-sm font-semibold mb-2" style="color: var(--color-accent);">Mobile</h3>
+            <p class="text-sm" style="color: var(--color-muted);">Flutter & Dart, Riverpod, Drift + SQLCipher (encrypted local-first storage), on-device AI, Google Play release</p>
+          </div>
+          <div class="p-4 rounded-lg" style="background-color: var(--color-surface); border: 1px solid var(--color-border);">
             <h3 class="text-sm font-semibold mb-2" style="color: var(--color-accent);">Automation & Security</h3>
-            <p class="text-sm" style="color: var(--color-muted);">n8n Workflows, GitHub Actions, JWT Auth, RBAC, Rate Limiting, Fernet Encryption, Audit Logging</p>
+            <p class="text-sm" style="color: var(--color-muted);">n8n Workflows, GitHub Actions, python-docx/OOXML, Word COM & Google Apps Script, JWT Auth, RBAC, Rate Limiting, Fernet Encryption, Audit Logging</p>
           </div>
         </div>
       </div>

@@ -1,0 +1,163 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const SAMPLE_WORKFLOW_URL = '/aninaya/integrations/n8n-email-pull-inbox.json';
+---
+
+<BaseLayout
+  title="Aninaya — Integrations & Webhooks (Pro)"
+  description="Connect Aninaya Pro to n8n, Zapier, or Make. Pull-based inbound webhook contract, signed outbound webhooks, and a ready-to-import n8n sample workflow."
+>
+  <section class="py-12 sm:py-16">
+    <div class="max-w-3xl">
+      <p class="text-sm font-medium mb-4" style="color: var(--color-accent);">Aninaya · Integrations · Pro</p>
+      <h1 class="text-4xl font-bold tracking-tight mb-6" style="color: var(--color-text);">
+        Integrations &amp; Webhooks
+      </h1>
+      <p class="text-lg leading-relaxed mb-4" style="color: var(--color-muted);">
+        Aninaya Pro connects to your own automation stack — n8n, Zapier, Make,
+        or anything that can serve JSON over HTTPS. Two directions, both under
+        your control: an <strong>inbound inbox</strong> the app pulls
+        transactions from, and <strong>outbound webhooks</strong> the app
+        signs and sends to your endpoint.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-4">
+    <div class="rounded-md p-5 border-l-4" style="background: var(--color-surface); border-color: var(--color-accent);">
+      <strong>Pro feature.</strong> Webhooks and the BYO automation inbox are
+      part of Aninaya Pro. Your endpoint URLs and secrets are stored only on
+      your device (Android Keystore); KaijuBytes runs no servers and never
+      sees your data or your endpoints.
+    </div>
+  </section>
+
+  <section class="py-10">
+    <h2 class="text-2xl font-bold mb-4" style="color: var(--color-text);">How it works — pull, never push</h2>
+    <p class="text-sm leading-relaxed mb-3" style="color: var(--color-muted);">
+      Nothing can push data into Aninaya. The app <strong>polls a URL you
+      configure</strong> (Settings → Integrations → Inbound webhook inbox URL)
+      with an HTTPS GET, parses the JSON it returns into <em>proposals</em>,
+      and queues them in the review inbox — every imported transaction still
+      needs your tap to commit. You can also trigger a poll manually with
+      <em>Pull now</em>.
+    </p>
+    <ul class="text-sm leading-relaxed list-disc pl-5" style="color: var(--color-muted);">
+      <li><strong>HTTPS only</strong>, public hosts only — localhost, RFC 1918 / private ranges, and <code>.local</code> are rejected by the app.</li>
+      <li>Optional shared secret: the app sends <code>X-Kaiju-Webhook-Secret</code> on every poll; your endpoint should verify it.</li>
+      <li>Deduplication is automatic — items are hashed on <code>source + id + amount + type + merchant + created_at</code>, so re-serving the same item is always safe.</li>
+    </ul>
+  </section>
+
+  <section class="py-10">
+    <h2 class="text-2xl font-bold mb-4" style="color: var(--color-text);">Inbound payload contract</h2>
+    <p class="text-sm mb-3" style="color: var(--color-muted);">
+      Your endpoint answers GET with this shape (the same sample shown in-app):
+    </p>
+    <pre class="rounded-lg p-4 text-xs overflow-x-auto" style="background: var(--color-surface); border: 1px solid var(--color-border); color: var(--color-text);"><code>{`{
+  "schema_version": "1",
+  "items": [
+    {
+      "id": "gmail-bill-2026-05-03-001",
+      "source": "n8n:gmail-bills",
+      "type": "outflow",
+      "amount": 1299.50,
+      "merchant": "Meralco",
+      "account_id": "bpi-savings",
+      "title": "May electric bill",
+      "notes": "Parsed from Gmail bill via n8n",
+      "created_at": "2026-05-03T10:45:00+08:00"
+    }
+  ]
+}`}</code></pre>
+    <div class="overflow-x-auto mt-6">
+      <table class="w-full text-sm" style="color: var(--color-muted);">
+        <thead>
+          <tr style="color: var(--color-text);">
+            <th class="text-left py-2 pr-4">Field</th>
+            <th class="text-left py-2 pr-4">Required</th>
+            <th class="text-left py-2">Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-top: 1px solid var(--color-border);"><td class="py-2 pr-4"><code>amount</code></td><td class="py-2 pr-4">Yes</td><td class="py-2">Peso value with centavos as a number, e.g. <code>1299.50</code>.</td></tr>
+          <tr style="border-top: 1px solid var(--color-border);"><td class="py-2 pr-4"><code>type</code></td><td class="py-2 pr-4">Yes</td><td class="py-2"><code>inflow</code> · <code>outflow</code> · <code>transfer</code> (<code>income</code>/<code>credit</code> normalize to inflow).</td></tr>
+          <tr style="border-top: 1px solid var(--color-border);"><td class="py-2 pr-4"><code>id</code></td><td class="py-2 pr-4">Recommended</td><td class="py-2">Stable external id — the dedup key. Use the source message/transaction id.</td></tr>
+          <tr style="border-top: 1px solid var(--color-border);"><td class="py-2 pr-4"><code>merchant</code></td><td class="py-2 pr-4">Recommended</td><td class="py-2">Vendor / payee name.</td></tr>
+          <tr style="border-top: 1px solid var(--color-border);"><td class="py-2 pr-4"><code>created_at</code></td><td class="py-2 pr-4">Recommended</td><td class="py-2">ISO 8601 with timezone; defaults to poll time when absent.</td></tr>
+          <tr style="border-top: 1px solid var(--color-border);"><td class="py-2 pr-4"><code>source</code></td><td class="py-2 pr-4">Optional</td><td class="py-2">Free-form origin tag, e.g. <code>n8n:gmail-bills</code>.</td></tr>
+          <tr style="border-top: 1px solid var(--color-border);"><td class="py-2 pr-4"><code>account_id</code></td><td class="py-2 pr-4">Optional</td><td class="py-2">Your Aninaya account id (list them from the in-app contract dialog).</td></tr>
+          <tr style="border-top: 1px solid var(--color-border);"><td class="py-2 pr-4"><code>title</code> / <code>notes</code></td><td class="py-2 pr-4">Optional</td><td class="py-2">Context shown on the proposal card.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="text-xs mt-3" style="color: var(--color-muted);">
+      The body may also be a bare array, or an object with an
+      <code>items</code>, <code>transactions</code>, or <code>data</code> array.
+    </p>
+  </section>
+
+  <section class="py-10">
+    <h2 class="text-2xl font-bold mb-4" style="color: var(--color-text);">Outbound webhooks</h2>
+    <p class="text-sm mb-3" style="color: var(--color-muted);">
+      Aninaya can POST events to your endpoint (test events and chat-driven
+      triggers today). Every request body is:
+    </p>
+    <pre class="rounded-lg p-4 text-xs overflow-x-auto" style="background: var(--color-surface); border: 1px solid var(--color-border); color: var(--color-text);"><code>{`{
+  "event": "aninaya.test",
+  "sentAt": "2026-06-11T10:45:00.000Z",
+  "payload": { "message": "Webhook test from Aninaya" }
+}`}</code></pre>
+    <p class="text-sm mt-4 mb-3" style="color: var(--color-muted);">
+      When you set a secret, two headers are added so your workflow can verify
+      authenticity and reject replays:
+    </p>
+    <ul class="text-sm leading-relaxed list-disc pl-5 mb-4" style="color: var(--color-muted);">
+      <li><code>X-Kaiju-Webhook-Timestamp</code> — ISO 8601 UTC signing time.</li>
+      <li><code>X-Kaiju-Webhook-Signature</code> — <code>sha256=HEX(HMAC_SHA256(secret, timestamp + "." + body))</code>.</li>
+    </ul>
+    <p class="text-sm mb-2" style="color: var(--color-muted);">Verification in an n8n Code node:</p>
+    <pre class="rounded-lg p-4 text-xs overflow-x-auto" style="background: var(--color-surface); border: 1px solid var(--color-border); color: var(--color-text);"><code>{`const crypto = require('crypto');
+const ts = $request.headers['x-kaiju-webhook-timestamp'];
+const sig = $request.headers['x-kaiju-webhook-signature'];
+const expected = 'sha256=' + crypto
+  .createHmac('sha256', $env.KAIJU_WEBHOOK_SECRET)
+  .update(ts + '.' + JSON.stringify($request.body))
+  .digest('hex');
+if (sig !== expected) throw new Error('Bad signature');`}</code></pre>
+  </section>
+
+  <section class="py-10">
+    <h2 class="text-2xl font-bold mb-4" style="color: var(--color-text);">n8n in 6 steps — Gmail bills → Aninaya</h2>
+    <ol class="text-sm leading-relaxed list-decimal pl-5 mb-6" style="color: var(--color-muted);">
+      <li class="mb-2"><a href={SAMPLE_WORKFLOW_URL} download style="color: var(--color-accent);">Download the sample workflow</a> and import it in n8n (Workflows → Import from File).</li>
+      <li class="mb-2">Connect your Gmail credential on the <em>Gmail Trigger</em> node and adjust the search filter to match your bill emails.</li>
+      <li class="mb-2">Set a long random secret in the workflow's <em>Check secret</em> node (or an n8n env var) — this is the value your phone will send.</li>
+      <li class="mb-2">Activate the workflow and copy the <strong>production URL</strong> of its Webhook node.</li>
+      <li class="mb-2">In Aninaya: Settings → Integrations → <em>Inbound webhook inbox URL</em> → paste the URL; set the same secret; enable the secret header.</li>
+      <li>Tap <em>Pull now</em>. Parsed bills appear as proposals in the review inbox — nothing commits without your approval.</li>
+    </ol>
+    <a
+      href={SAMPLE_WORKFLOW_URL}
+      download
+      class="inline-flex items-center px-6 py-3 rounded-lg text-sm font-medium transition-colors"
+      style="background-color: var(--color-accent); color: #ffffff;"
+    >
+      Download n8n sample workflow (JSON) &darr;
+    </a>
+  </section>
+
+  <section class="py-10">
+    <h2 class="text-2xl font-bold mb-4" style="color: var(--color-text);">Aninaya Desktop</h2>
+    <p class="text-sm leading-relaxed mb-4" style="color: var(--color-muted);">
+      Aninaya Desktop (requires Pro) is the Windows companion app — pair it
+      with the Aninaya app on your phone over your own Wi-Fi to view and edit
+      your finances on a PC. LAN-only, opt-in pairing, no telemetry, and the
+      same bring-your-own-AI posture as the phone app.
+    </p>
+    <a href="/aninaya/" class="text-sm font-medium" style="color: var(--color-accent);">
+      &larr; Back to Aninaya
+    </a>
+  </section>
+</BaseLayout>

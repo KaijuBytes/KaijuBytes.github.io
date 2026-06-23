@@ -12,15 +12,36 @@ const projects = [
   },
   {
     title: 'IDP System — Intelligent Document Processing',
-    description: 'Enterprise RAG-based document extraction engine with parallel batch processing (14-step pipeline), multi-provider AI support (Ollama, OpenAI, Anthropic, Gemini, Groq), Human-in-the-Loop review workflows with active learning, and multi-tenant RBAC. Built in under a year. Deployed internally at DSWD Philippines.',
+    description: 'Enterprise RAG-based document extraction engine with parallel batch processing (14-step pipeline), multi-provider AI support (Ollama, OpenAI, Anthropic, Gemini, Groq), Human-in-the-Loop review workflows with active learning, and multi-tenant RBAC. In a production proof-of-concept it reached 99.95% cell-level and 99.40% row-level extraction accuracy across ~22,000 fields on structured government enrollment forms. Deployed internally at DSWD Philippines.',
     tags: ['Python', 'FastAPI', 'React', 'PostgreSQL', 'pgvector', 'Redis', 'MinIO', 'Ollama', 'Docker'],
     demoUrl: '/demos',
+  },
+  {
+    title: 'Atlas — Personal AI Assistant',
+    description: 'Voice + text multi-agent orchestrator with a 3-ring, offline-first architecture. Local wake-word ("hey atlas") via openWakeWord, faster-whisper STT and Piper TTS, with on-device Ollama models for intent routing and a Claude/Gemini cloud tier for hard reasoning. Retrieval over a personal vault and diary using sqlite-vec, plus a JARVIS-style HUD built with FastAPI + HTMX.',
+    tags: ['Python', 'Ollama', 'faster-whisper', 'Piper', 'sqlite-vec', 'FastAPI', 'HTMX'],
   },
   {
     title: 'Lo-CADIS Sprout — IoT Location & Asset Tracking',
     description: 'Real-time IoT monitoring platform with MQTT ingestion, ESP32/Wemos firmware, TimescaleDB time-series storage, automated alerting, and multi-tenant farm management. Originated at UPLB (2018-2019), revived and modernized.',
     tags: ['FastAPI', 'React', 'MQTT', 'ESP32', 'TimescaleDB', 'Celery', 'Docker'],
     repoUrl: 'https://github.com/KaijuBytes/locadis',
+  },
+  {
+    title: 'Reporting Automation Pipeline',
+    description: 'Document-automation pipeline for semi-monthly government reporting. Converts Markdown + YAML frontmatter into submission-ready Word, PDF, and Google Docs output via direct python-docx / OOXML editing — reproducing official templates faithfully (column widths, merged headers, signature blocks, live page fields). Multi-format export with a guided CLI wizard.',
+    tags: ['Python', 'python-docx', 'OOXML', 'Google Docs API', 'CLI'],
+  },
+  {
+    title: 'Aninaya Tax Companion',
+    description: 'Local-first Flutter BIR tax estimator for Philippine freelancers and mixed-income earners. 8% vs graduated tax comparison, 1701Q quarterly worksheet, and a BIR deadline tracker — sharing an on-device data core with the Aninaya finance app so figures never need re-entry. In development.',
+    tags: ['Flutter', 'Dart', 'Riverpod', 'Drift', 'SQLCipher', 'On-device'],
+  },
+  {
+    title: 'Aninaya Automations',
+    description: 'Privacy-first n8n automation companion for Aninaya. Uses a pull model over a secure HTTPS GET endpoint (not inbound push) to ingest transactions from email, keeping credentials and data under the user’s control. MIT-licensed.',
+    tags: ['n8n', 'Docker', 'Gmail API', 'Automation'],
+    repoUrl: 'https://github.com/KaijuBytes/aninaya-automations',
   },
   {
     title: 'Business Lookup AI',
