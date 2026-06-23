@@ -1,0 +1,3 @@
+# app-ads.txt — authorizes AdMob to monetize the Aninaya app.
+# IAB Tech Lab app-ads.txt spec. pub ID = KaijuBytes AdMob publisher.
+google.com, pub-7032051306583664, DIRECT, f08c47fec0942fa0

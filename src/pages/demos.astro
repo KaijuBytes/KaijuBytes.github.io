@@ -1,0 +1,57 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+
+const demos = [
+  {
+    title: 'DocExtract',
+    description: 'Client-side document extraction. Upload an image, OCR it with Tesseract.js, and extract structured fields using a schema you define. Compare OCR modes: vision, OCR-only, and hybrid.',
+    tags: ['Tesseract.js', 'OCR', 'Document AI', 'Client-side'],
+    demoUrl: '/demos/doc-extract',
+  },
+  {
+    title: 'BatchViz',
+    description: 'Interactive visualization of a 14-step document processing pipeline. Watch documents flow through extraction, validation, HITL review, and approval stages with live metrics.',
+    tags: ['React', 'Framer Motion', 'Pipeline', 'Visualization'],
+    demoUrl: '/demos/batch-viz',
+  },
+  {
+    title: 'SchemaForge',
+    description: 'Interactive schema builder. Drag-and-drop fields, define types and validation rules, then see how the schema applies to a sample document in real-time.',
+    tags: ['React', 'dnd-kit', 'Schema Design', 'Validation'],
+    demoUrl: '/demos/schema-forge',
+  },
+  {
+    title: 'PromptLab',
+    description: 'Side-by-side prompt comparison tool. Enter two prompts, pick a model, and see results scored side-by-side. Demonstrates prompt engineering and A/B testing methodology.',
+    tags: ['React', 'Prompt Engineering', 'A/B Testing'],
+    demoUrl: '/demos/prompt-lab',
+  },
+  {
+    title: 'RAG Mini',
+    description: 'Simple RAG Q&A pipeline. Ask questions about sample documents and see how chunks are retrieved and answers are generated.',
+    tags: ['React', 'RAG', 'Embeddings', 'Vector Search'],
+    demoUrl: '/demos/rag-mini',
+  },
+];
+---
+
+<BaseLayout title="Demos" description="Interactive demos showcasing document AI, pipeline visualization, and prompt engineering.">
+  <section class="py-12">
+    <h1 class="text-3xl font-bold mb-4" style="color: var(--color-text);">Live Demos</h1>
+    <p class="text-lg mb-4" style="color: var(--color-muted);">
+      Interactive mini-applications showcasing the core concepts behind my production systems.
+      All run client-side in your browser — no backend required.
+    </p>
+    <p class="text-sm mb-10 px-4 py-3 rounded-lg" style="background-color: var(--color-surface); border: 1px solid var(--color-border); color: var(--color-muted);">
+      These are simplified, simulated versions of concepts from the private IDP System (44 services, 30 API routers).
+      DocExtract runs real Tesseract.js OCR in your browser. The other demos use mock data and pre-computed results
+      to illustrate how the production system's architecture works. Each demo notes what is real vs simulated.
+    </p>
+    <div class="grid gap-6 md:grid-cols-2">
+      {demos.map(demo => (
+        <ProjectCard {...demo} />
+      ))}
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,18 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SchemaForge from '../../components/demos/SchemaForge';
+---
+
+<BaseLayout title="SchemaForge Demo" description="Interactive schema builder with drag-and-drop field ordering and live extraction preview.">
+  <section class="py-12">
+    <div class="mb-8">
+      <a href="/demos" class="text-sm font-medium" style="color: var(--color-accent);">&larr; Back to Demos</a>
+      <h1 class="text-3xl font-bold mt-2" style="color: var(--color-text);">SchemaForge</h1>
+      <p class="text-lg mt-2" style="color: var(--color-muted);">Interactive schema builder. Define extraction fields with types and validation, drag to reorder, and see live extraction preview against a sample document.</p>
+      <div class="mt-4 px-4 py-3 rounded-lg text-sm" style="background-color: var(--color-surface); border: 1px solid var(--color-border); color: var(--color-muted);">
+        <strong style="color: var(--color-text);">Interactive demo with mock extraction.</strong> The drag-and-drop schema builder is fully functional. Extraction results are simulated using the sample document text — the real IDP System connects schemas to AI-powered extraction across multiple providers.
+      </div>
+    </div>
+    <SchemaForge client:load />
+  </section>
+</BaseLayout>

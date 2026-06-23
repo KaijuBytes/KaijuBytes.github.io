@@ -1,0 +1,241 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Aninaya Terms of Service"
+  description="Terms of Service and EULA for Aninaya — a local-first personal finance app for Android by KaijuBytes."
+>
+  <section class="py-10">
+    <div class="max-w-3xl mx-auto">
+      <div class="flex items-center gap-4 mb-2">
+        <img
+          src="/aninaya/icon.png"
+          alt="Aninaya app icon"
+          width="56"
+          height="56"
+          class="shrink-0"
+          style="border-radius: 14px; box-shadow: 0 2px 8px rgba(0,0,0,0.15); width: 56px; height: 56px; object-fit: cover;"
+        />
+        <h1 class="text-3xl font-bold" style="color: var(--color-text);">Aninaya Terms of Service & EULA</h1>
+      </div>
+      <p class="text-sm mb-6" style="color: var(--color-muted);">
+        <strong>Effective date:</strong> May 10, 2026 &nbsp;·&nbsp; <strong>Last updated:</strong> May 10, 2026 &nbsp;·&nbsp;
+        <a href="/aninaya/privacy-policy/" style="color: var(--color-accent);">Privacy Policy</a>
+      </p>
+
+      <div class="rounded-md p-4 mb-8 border-l-4" style="background: var(--color-surface); border-color: var(--color-accent);">
+        <strong>Short version:</strong> Aninaya is a personal-use Android app published by
+        KaijuBytes (sole trader, Philippines). It assists you in tracking finances and
+        preparing your SALN — but it is <em>not</em> a regulated financial adviser, and
+        it is <em>not</em> an official Civil Service Commission product. AI features
+        produce drafts only; you are responsible for reviewing them. Subscriptions are
+        billed through Google Play and can be cancelled there at any time.
+      </div>
+
+      <h2 class="text-xl font-semibold mt-8 mb-3" style="color: var(--color-text);">1. Acceptance</h2>
+      <p>
+        By installing or using Aninaya you agree to these Terms of Service and the
+        accompanying <a href="/aninaya/privacy-policy/" style="color: var(--color-accent);">Privacy Policy</a>.
+        If you do not agree, do not install or use the app. Inside the app, your
+        acceptance is recorded with a timestamp and a checksum of the version you saw
+        — when these terms are updated you will be hard-blocked from continued use
+        until you re-accept.
+      </p>
+
+      <h2 class="text-xl font-semibold mt-8 mb-3" style="color: var(--color-text);">2. End-User Licence Agreement (EULA)</h2>
+      <p class="mb-3">
+        Aninaya is licensed to you (end user) for personal, non-commercial use on
+        Android devices you own or control. You may not:
+      </p>
+      <ul class="list-disc pl-6 space-y-2 mb-3">
+        <li>Reverse-engineer, decompile, or disassemble the app except as expressly
+            permitted by Philippine law (e.g. interoperability under fair use).</li>
+        <li>Resell, sublicense, or commercially redistribute the app, the on-device
+            AI model files, or any extracted asset.</li>
+        <li>Use the app to process or store the personal data of third parties
+            without their explicit consent.</li>
+        <li>Bypass the in-app purchase system to unlock Pro / Elite features.</li>
+        <li>Use the app for any purpose contrary to applicable Philippine law,
+            including the Anti-Money Laundering Act (RA 9160) and the Data Privacy
+            Act (RA 10173).</li>
+      </ul>
+      <p>
+        Copyright in the app, including all source code shipped to your device,
+        belongs to <strong>Orlando G. Martinez (Lanz) / KaijuBytes</strong>. The on-device
+        AI models bundled with or downloaded by the app (Qwen 2.5, Qwen3, SmolLM,
+        MiniLM) remain governed by their respective Apache 2.0 / source licences.
+      </p>
+
+      <h2 class="text-xl font-semibold mt-8 mb-3" style="color: var(--color-text);">3. Subscription Terms</h2>
+      <p class="mb-3">
+        Aninaya offers a Free tier and paid tiers (Pro and Elite/Family). Paid tiers
+        are billed through <strong>Google Play Billing</strong>. Current prices are
+        shown on the upgrade screen inside the app and on your Google Play subscription
+        page — they are managed by Google Play and may change. This document does
+        not commit to any specific peso amount.
+      </p>
+      <ul class="list-disc pl-6 space-y-2 mb-3">
+        <li>Subscriptions auto-renew unless cancelled at least 24 hours before the
+            renewal date, in line with Google Play policy.</li>
+        <li>You can cancel at any time in your Google Play account.</li>
+        <li>Refund requests are handled by Google Play in the first instance; please
+            contact <a href="https://support.google.com/googleplay" target="_blank" rel="noopener noreferrer" style="color: var(--color-accent);">Google Play Support</a> for refunds.</li>
+        <li>If a paid feature stops working or fails to deliver a service that was
+            advertised at the time of purchase, contact
+            <a href="mailto:support@kaijubytes.dev" style="color: var(--color-accent);">support@kaijubytes.dev</a>
+            and we will work with you to resolve it.</li>
+        <li>Pro and Elite features are convenience automation tools — they do not
+            constitute the sale of government forms or certified financial advice.</li>
+      </ul>
+
+      <h2 class="text-xl font-semibold mt-8 mb-3" style="color: var(--color-text);">4. SALN Module</h2>
+      <p class="mb-3">
+        Aninaya assists in preparing the <strong>Statement of Assets, Liabilities and
+        Net Worth (SALN)</strong> form for Philippine government employees. Important
+        clarifications:
+      </p>
+      <ul class="list-disc pl-6 space-y-2 mb-3">
+        <li>Aninaya is <strong>not</strong> affiliated with the Civil Service
+            Commission (CSC), the Office of the Ombudsman, or any other Philippine
+            government agency.</li>
+        <li>Aninaya is <strong>not</strong> an official CSC product. The DOCX/PDF
+            outputs use the CSC Resolution No. 2500632 templates, but generation
+            and content remain your responsibility.</li>
+        <li>You are <strong>solely responsible</strong> for the accuracy,
+            completeness, and lawful submission of your SALN. KaijuBytes is not
+            liable for omissions, errors, or misclassifications in the generated
+            forms.</li>
+        <li>The SALN module asks for your explicit confirmation each time you export
+            a form. The exported file is written to your device — KaijuBytes never
+            receives a copy.</li>
+      </ul>
+
+      <h2 class="text-xl font-semibold mt-8 mb-3" style="color: var(--color-text);">5. No Financial Advice</h2>
+      <p>
+        Aninaya is a personal budgeting and tracking tool. The AI Planner, AI Chat,
+        coaching tips, debt-payoff projections, and net-worth reports are
+        <strong>informational only</strong>. Nothing in the app constitutes regulated
+        financial advice, investment recommendation, tax advice, or insurance
+        guidance. Consult a licensed financial planner, CPA, or insurance adviser
+        before acting on figures the app produces.
+      </p>
+
+      <h2 class="text-xl font-semibold mt-8 mb-3" style="color: var(--color-text);">6. AI-Generated Content</h2>
+      <p class="mb-3">
+        Aninaya's AI features (Receipt AI, Statement Scan, AI Chat, AI Planner)
+        produce <strong>drafts only</strong>. By using these features you agree that:
+      </p>
+      <ul class="list-disc pl-6 space-y-2 mb-3">
+        <li>OCR and AI extraction accuracy depends on receipt quality, device tier,
+            and the on-device model in use. You will review every extracted field
+            before saving.</li>
+        <li>AI Chat / Planner replies are pattern-matched suggestions, not certified
+            advice. You will verify any actionable guidance against official sources
+            (BSP, BIR, SSS, GSIS, Pag-IBIG, your bank, your insurer, your employer)
+            before acting on it.</li>
+        <li>You will not rely on AI output alone for tax filings, regulatory
+            disclosures (including SALN), legal proceedings, or investment decisions.</li>
+      </ul>
+      <p>
+        On first use of any AI feature, the app records your acknowledgement of these
+        limitations. You can revisit the explanation at any time in
+        <em>Settings → AI &amp; Planning → How on-device AI works</em>.
+      </p>
+
+      <h2 class="text-xl font-semibold mt-8 mb-3" style="color: var(--color-text);">7. Bring-Your-Own AI Provider Risk</h2>
+      <p class="mb-3">
+        Aninaya supports connecting your own AI endpoint (OpenAI, Anthropic, hosted
+        Ollama, LM Studio, or any OpenAI-compatible API) for AI Chat. If you enable
+        this:
+      </p>
+      <ul class="list-disc pl-6 space-y-2 mb-3">
+        <li>A financial context summary (account names, balances, debt utilization,
+            salary average, employer if set, active goals, recurring bills, trips)
+            is sent to that provider for each chat turn. See the
+            <a href="/aninaya/privacy-policy/#5b" style="color: var(--color-accent);">Privacy Policy § 5b</a>
+            for the full list.</li>
+        <li>Your data leaves your device the moment you press Send. KaijuBytes never
+            sees this traffic but cannot make any representations about how the
+            receiving provider stores, retains, or uses it.</li>
+        <li>You are responsible for understanding the third-party provider's privacy
+            posture, terms of service, and data residency. KaijuBytes is not liable
+            for losses arising from the third-party provider's handling of your data.</li>
+        <li>The app prompts a per-host consent dialog before sending data to a new
+            base URL, and refuses to send to non-loopback hosts you have not
+            approved.</li>
+      </ul>
+
+      <h2 class="text-xl font-semibold mt-8 mb-3" style="color: var(--color-text);">8. Disclaimer of Warranties</h2>
+      <p class="mb-3">
+        The app is provided "<strong>as is</strong>" and "<strong>as available</strong>"
+        without warranties of any kind, whether express, implied, or statutory,
+        including but not limited to warranties of merchantability, fitness for a
+        particular purpose, and non-infringement. KaijuBytes does not warrant that:
+      </p>
+      <ul class="list-disc pl-6 space-y-2 mb-3">
+        <li>The app will be uninterrupted, error-free, or free of malicious code.</li>
+        <li>OCR or AI extraction will be accurate in any specific case.</li>
+        <li>The app will be compatible with all Android devices, OS versions, or
+            third-party apps.</li>
+        <li>Data stored on your device will survive device failure, OS reinstall,
+            uninstallation, or unauthorised access. <strong>You are responsible</strong>
+            for backing up your encrypted vault export to a location you trust.</li>
+      </ul>
+
+      <h2 class="text-xl font-semibold mt-8 mb-3" style="color: var(--color-text);">9. Limitation of Liability</h2>
+      <p>
+        To the maximum extent permitted by Philippine law, in no event shall
+        KaijuBytes be liable for any indirect, incidental, special, consequential,
+        or punitive damages — including loss of profits, data, financial records,
+        or government penalties — arising from your use of or inability to use the
+        app. KaijuBytes' total cumulative liability for any claim relating to the
+        app shall not exceed the greater of: (a) PHP 500, or (b) the amount you
+        paid KaijuBytes for the app in the 12 months preceding the claim.
+      </p>
+
+      <h2 class="text-xl font-semibold mt-8 mb-3" style="color: var(--color-text);">10. Termination</h2>
+      <p>
+        You may stop using Aninaya at any time by uninstalling it. KaijuBytes may
+        suspend or terminate your access to paid features if you breach these Terms,
+        though no termination action will require you to delete data already stored
+        on your own device. Sections 5 (No Financial Advice), 8 (Disclaimer), 9
+        (Limitation of Liability), and 12 (Governing Law) survive termination.
+      </p>
+
+      <h2 class="text-xl font-semibold mt-8 mb-3" style="color: var(--color-text);">11. Changes to These Terms</h2>
+      <p>
+        We may update these Terms when adding new features, addressing regulatory
+        changes, or clarifying existing provisions. The updated Terms will be posted
+        at this URL with a new effective date. The in-app version of the Terms is
+        accompanied by a checksum of the body text — when either the date or the
+        checksum changes, the app will hard-block existing users into a re-acceptance
+        flow on next launch. You may decline the updated Terms; doing so will close
+        the app.
+      </p>
+
+      <h2 class="text-xl font-semibold mt-8 mb-3" style="color: var(--color-text);">12. Governing Law &amp; Jurisdiction</h2>
+      <p>
+        These Terms are governed by the laws of the Republic of the Philippines.
+        Any dispute arising out of or in connection with these Terms shall be
+        subject to the exclusive jurisdiction of the courts of Metro Manila,
+        Philippines. Nothing in this clause limits any consumer-protection right
+        you have under Philippine law that cannot be waived by contract.
+      </p>
+
+      <h2 class="text-xl font-semibold mt-8 mb-3" style="color: var(--color-text);">13. Contact</h2>
+      <p>
+        Questions about these Terms:<br />
+        <a href="mailto:support@kaijubytes.dev" style="color: var(--color-accent);">support@kaijubytes.dev</a><br />
+        KaijuBytes (sole trader, Orlando G. Martinez / Lanz)<br />
+        Philippines
+      </p>
+
+      <footer class="mt-12 pt-6 text-sm" style="border-top: 1px solid var(--color-border); color: var(--color-muted);">
+        © 2026 Orlando G. Martinez (Lanz) / KaijuBytes. All rights reserved.
+        Aninaya is not a regulated financial adviser. Information in the app
+        is for personal budgeting and planning purposes only.
+      </footer>
+    </div>
+  </section>
+</BaseLayout>

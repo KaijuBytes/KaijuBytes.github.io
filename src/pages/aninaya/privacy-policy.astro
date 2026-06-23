@@ -1,0 +1,269 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Aninaya Privacy Policy"
+  description="Privacy Policy for Aninaya — a local-first personal finance app for Android by KaijuBytes."
+>
+  <section class="py-10">
+    <div class="max-w-3xl mx-auto">
+      <div class="flex items-center gap-4 mb-2">
+        <img
+          src="/aninaya/icon.png"
+          alt="Aninaya app icon"
+          width="56"
+          height="56"
+          class="shrink-0"
+          style="border-radius: 14px; box-shadow: 0 2px 8px rgba(0,0,0,0.15); width: 56px; height: 56px; object-fit: cover;"
+        />
+        <h1 class="text-3xl font-bold" style="color: var(--color-text);">Aninaya Privacy Policy</h1>
+      </div>
+      <p class="text-sm mb-6" style="color: var(--color-muted);">
+        <strong>Effective date:</strong> May 10, 2026 &nbsp;·&nbsp; <strong>Last updated:</strong> May 10, 2026 &nbsp;·&nbsp;
+        <a href="/aninaya/terms-of-service/" style="color: var(--color-accent);">Terms of Service</a>
+      </p>
+
+      <div class="rounded-md p-4 mb-8 border-l-4" style="background: var(--color-surface); border-color: var(--color-accent);">
+        <strong>Short version:</strong> Aninaya processes all of your financial data
+        <em>entirely on your device</em>. KaijuBytes does not operate any servers, does not
+        collect your financial information, and is not a Personal Information Controller (PIC)
+        under Philippine Republic Act 10173 (Data Privacy Act of 2012). Aninaya was previously
+        published under the name <em>KaijuFinance</em>; the product, publisher, and privacy posture
+        are unchanged.
+      </div>
+
+      <h2 class="text-xl font-semibold mt-8 mb-3" style="color: var(--color-text);">1. Who we are</h2>
+      <p>
+        Aninaya is developed and published by <strong>KaijuBytes</strong> (sole trader,
+        Orlando G. Martinez / Lanz, Philippines). Contact:
+        <a href="mailto:kaijubytes.dev@gmail.com" style="color: var(--color-accent);">kaijubytes.dev@gmail.com</a>.
+      </p>
+
+      <h2 class="text-xl font-semibold mt-8 mb-3" style="color: var(--color-text);">2. What data Aninaya collects — and where it stays</h2>
+      <p class="mb-4">
+        All personal and financial data you enter or import into Aninaya is stored
+        <em>exclusively on your device</em> in an encrypted local database (SQLite with
+        SQLCipher AES-256 encryption, keyed by your passcode). KaijuBytes never transmits,
+        stores, or has access to your financial data.
+      </p>
+      <div class="overflow-x-auto">
+        <table class="w-full text-sm border-collapse">
+          <thead>
+            <tr style="background: var(--color-surface);">
+              <th class="border px-3 py-2 text-left font-semibold" style="border-color: var(--color-border);">Data type</th>
+              <th class="border px-3 py-2 text-left font-semibold" style="border-color: var(--color-border);">Stored where</th>
+              <th class="border px-3 py-2 text-left font-semibold" style="border-color: var(--color-border);">Sent to KaijuBytes?</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="border px-3 py-2" style="border-color: var(--color-border);">Transaction records, account balances, budgets, categories</td>
+              <td class="border px-3 py-2" style="border-color: var(--color-border);">On-device SQLite (AES-256, passcode-keyed)</td>
+              <td class="border px-3 py-2" style="border-color: var(--color-border);">No</td>
+            </tr>
+            <tr style="background: var(--color-surface);">
+              <td class="border px-3 py-2" style="border-color: var(--color-border);">Receipt photos taken via the camera or gallery</td>
+              <td class="border px-3 py-2" style="border-color: var(--color-border);">On-device app-private storage</td>
+              <td class="border px-3 py-2" style="border-color: var(--color-border);">No</td>
+            </tr>
+            <tr>
+              <td class="border px-3 py-2" style="border-color: var(--color-border);">OCR extraction results</td>
+              <td class="border px-3 py-2" style="border-color: var(--color-border);">Processed entirely on-device (MLKit, on-device SLM)</td>
+              <td class="border px-3 py-2" style="border-color: var(--color-border);">No</td>
+            </tr>
+            <tr style="background: var(--color-surface);">
+              <td class="border px-3 py-2" style="border-color: var(--color-border);">SALN declarations</td>
+              <td class="border px-3 py-2" style="border-color: var(--color-border);">On-device database; PDF/DOCX exported to your device</td>
+              <td class="border px-3 py-2" style="border-color: var(--color-border);">No</td>
+            </tr>
+            <tr>
+              <td class="border px-3 py-2" style="border-color: var(--color-border);">Passcode / biometric key material</td>
+              <td class="border px-3 py-2" style="border-color: var(--color-border);">Android Keystore (hardware-backed on supported devices)</td>
+              <td class="border px-3 py-2" style="border-color: var(--color-border);">No</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2 class="text-xl font-semibold mt-8 mb-3" style="color: var(--color-text);">3. Permissions we request and why</h2>
+      <div class="overflow-x-auto">
+        <table class="w-full text-sm border-collapse">
+          <thead>
+            <tr style="background: var(--color-surface);">
+              <th class="border px-3 py-2 text-left font-semibold" style="border-color: var(--color-border);">Permission</th>
+              <th class="border px-3 py-2 text-left font-semibold" style="border-color: var(--color-border);">Why</th>
+              <th class="border px-3 py-2 text-left font-semibold" style="border-color: var(--color-border);">Can you deny it?</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="border px-3 py-2" style="border-color: var(--color-border);">Camera</td>
+              <td class="border px-3 py-2" style="border-color: var(--color-border);">Scan receipts via the Smart Scan feature</td>
+              <td class="border px-3 py-2" style="border-color: var(--color-border);">Yes — Smart Scan will not work; all other features unaffected</td>
+            </tr>
+            <tr style="background: var(--color-surface);">
+              <td class="border px-3 py-2" style="border-color: var(--color-border);">Read external storage / Media (Photos)</td>
+              <td class="border px-3 py-2" style="border-color: var(--color-border);">Import receipt photos from your gallery</td>
+              <td class="border px-3 py-2" style="border-color: var(--color-border);">Yes — gallery picker will not work; camera path unaffected</td>
+            </tr>
+            <tr>
+              <td class="border px-3 py-2" style="border-color: var(--color-border);">Internet</td>
+              <td class="border px-3 py-2" style="border-color: var(--color-border);">Required for: (a) downloading optional on-device AI models (Qwen2.5, Qwen3, SmolLM) on first use; (b) refreshing exchange rates (read-only public API, no PII sent); (c) Google AdMob (Free tier); (d) optional Bring-Your-Own AI requests to a third-party endpoint you configure. No financial data is sent to KaijuBytes servers.</td>
+              <td class="border px-3 py-2" style="border-color: var(--color-border);">No — Android does not allow per-app Internet permission denial on modern versions</td>
+            </tr>
+            <tr style="background: var(--color-surface);">
+              <td class="border px-3 py-2" style="border-color: var(--color-border);">USE_BIOMETRIC / USE_FINGERPRINT</td>
+              <td class="border px-3 py-2" style="border-color: var(--color-border);">Optional biometric unlock in addition to passcode</td>
+              <td class="border px-3 py-2" style="border-color: var(--color-border);">Yes — passcode login still works</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2 class="text-xl font-semibold mt-8 mb-3" style="color: var(--color-text);">4. Google AdMob (Free tier only)</h2>
+      <p class="mb-3">
+        The Free tier of Aninaya displays advertisements served by <strong>Google AdMob</strong>.
+        Google is the data controller for ad-targeting data collected through AdMob. KaijuBytes does
+        not access this data. Google's privacy practices are governed by the
+        <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" style="color: var(--color-accent);">Google Privacy Policy</a>.
+      </p>
+      <p class="mb-3">
+        If you are in the EU, EEA, or UK, a consent dialog (Google User Messaging Platform) will
+        appear on first launch as required by GDPR and Google's policies. You can also toggle
+        "Personalized Ads" off in <em>Settings → Privacy → Ad Preferences</em> at any time.
+      </p>
+      <p>
+        <strong>Pro subscribers</strong> see no advertisements; AdMob is inactive on Pro-tier sessions.
+      </p>
+
+      <h2 class="text-xl font-semibold mt-8 mb-3" style="color: var(--color-text);">5. On-device AI models</h2>
+      <p class="mb-3">Smart Scan uses local AI models to extract transaction details from receipts:</p>
+      <ul class="list-disc pl-6 space-y-2 mb-3">
+        <li><strong>MLKit Text Recognition</strong> — Google's on-device OCR API. Text is processed locally; see <a href="https://developers.google.com/ml-kit/terms" target="_blank" rel="noopener noreferrer" style="color: var(--color-accent);">MLKit Terms</a>.</li>
+        <li><strong>MiniLM (sentence-transformers/all-MiniLM-L6-v2)</strong> — Open-source model (Apache 2.0), runs entirely on-device.</li>
+        <li><strong>Qwen 2.5 (0.5B / 1.5B)</strong> — Apache 2.0 small language model, downloaded from a KaijuBytes-hosted CDN the first time you use Smart Scan on a supported device. The model runs locally; no receipt text is sent to any server during inference. The variant chosen depends on your device tier.</li>
+      </ul>
+      <p>
+        Qwen 2.5 is licensed under Apache 2.0. The model file is downloaded over
+        HTTPS and verified by checksum before use; the download itself sends no
+        personal data beyond the standard HTTP request your device would make for
+        any file.
+      </p>
+
+      <h2 class="text-xl font-semibold mt-8 mb-3" style="color: var(--color-text);">5a. On-device AI compute notice</h2>
+      <p class="mb-3">
+        Because the AI runs locally on your phone, it uses your device's CPU/GPU.
+        During use the phone may warm up, and AI Chat replies can take anywhere from
+        a few seconds to a couple of minutes depending on your device tier and the
+        length of the reply. This is the cost of keeping your data on-device — not a
+        defect. Indicative ranges:
+      </p>
+      <ul class="list-disc pl-6 space-y-1 mb-3">
+        <li><strong>Tier S</strong> (Snapdragon 8 Gen 3/4, flagship 2024+): about 10–30 seconds for a paragraph reply.</li>
+        <li><strong>Tier A</strong> (Snapdragon 8 Gen 2, flagship 2023): about 30–60 seconds.</li>
+        <li><strong>Tier B</strong> (Snapdragon 7-series, mid-range): around 1–2 minutes.</li>
+        <li><strong>Tier C/D</strong> (entry-level / older): can take 2–5 minutes; the smallest model with template fallback is used to keep responses tractable.</li>
+      </ul>
+      <p class="mb-3">
+        You will see an in-app notice acknowledging this on first use of AI Chat,
+        and Aninaya offers a "Run in background" option so you don't have to keep
+        the screen on while waiting.
+      </p>
+
+      <h2 class="text-xl font-semibold mt-8 mb-3" style="color: var(--color-text);">5b. Bring-Your-Own AI endpoints (opt-in)</h2>
+      <p class="mb-3">
+        If you connect a third-party AI provider in <em>Settings → Integrations</em>
+        (your own OpenAI key, Anthropic key, hosted Ollama, LM Studio, or any
+        OpenAI-compatible endpoint), Aninaya sends a <strong>financial context summary</strong>
+        to that provider for each chat turn. The data leaves your device the moment you
+        press Send. KaijuBytes never sees this traffic.
+      </p>
+      <p class="mb-3">The summary may include:</p>
+      <ul class="list-disc pl-6 space-y-1 mb-3">
+        <li>Account names + balances</li>
+        <li>Net worth, income, expense, and savings rate</li>
+        <li>Debt detail (credit limits, utilization, monthly APR, minimum payment)</li>
+        <li>Salary average and frequency (auto-detected from your transactions)</li>
+        <li>Employer name (only if you set one in Settings → Capture &amp; Compliance)</li>
+        <li>Active goals and recurring bills</li>
+        <li>Active travel trips and trip spending</li>
+      </ul>
+      <p class="mb-3">
+        No receipt photos, raw transactions, contact info, or passcode material are
+        sent. Aninaya will <strong>refuse to send</strong> to a host you have not
+        explicitly approved — toggling on "endpoint chat" with a new base URL prompts
+        a per-host consent dialog. Loopback addresses (<code>localhost</code>,
+        <code>127.0.0.1</code>, <code>::1</code>) are treated as on-device and skip
+        the consent prompt.
+      </p>
+      <p class="mb-3">
+        You are responsible for understanding the receiving provider's privacy posture
+        before enabling BYO AI. KaijuBytes makes no representations about how those
+        providers handle the data you send them. You can revoke consent for a specific
+        host at any time in <em>Settings → Integrations → Approved AI hosts</em>.
+      </p>
+
+      <h2 class="text-xl font-semibold mt-8 mb-3" style="color: var(--color-text);">6. Data you export</h2>
+      <p>
+        When you use the backup or vault export features, Aninaya writes an encrypted file
+        to your device (or a location you choose, such as OneDrive or a local folder). KaijuBytes
+        does not receive this file. You are responsible for the security of any file you export
+        to a cloud storage provider.
+      </p>
+
+      <h2 class="text-xl font-semibold mt-8 mb-3" style="color: var(--color-text);">7. Aninaya Bridge (phone↔phone LAN sync)</h2>
+      <p class="mb-3">
+        Aninaya Bridge is an optional feature that lets two or more of <em>your own</em> devices
+        keep their finance data in sync over your local Wi-Fi network. It is strictly
+        peer-to-peer:
+      </p>
+      <ul class="list-disc pl-6 space-y-2 mb-3">
+        <li>Devices discover each other via mDNS (<code>_aninaya-bridge._tcp</code>) on the same Wi-Fi network.</li>
+        <li>Pairing requires you to scan a QR code or enter a 6-digit code shown on the other device.</li>
+        <li>All sync traffic is encrypted end-to-end with mutual-TLS plus AES-256-GCM, using ed25519 keys generated on first pairing.</li>
+        <li>Sync only runs while the app is in the foreground on both devices.</li>
+        <li>No sync data ever leaves your local network. KaijuBytes operates no relay, sync, or backup servers and cannot read your synchronised data.</li>
+      </ul>
+      <p class="mb-3">
+        Bridge is included free for two paired devices. Linking a third or further device
+        requires a Pro subscription. Pairing can be revoked from <em>Settings → Bridge →
+        Paired devices</em> at any time, which immediately invalidates that peer's keys.
+      </p>
+
+      <h2 class="text-xl font-semibold mt-8 mb-3" style="color: var(--color-text);">8. In-app purchases</h2>
+      <p>
+        Pro subscriptions are processed entirely by <strong>Google Play Billing</strong>.
+        KaijuBytes receives only an anonymised purchase token from Google; we do not see your
+        payment card details. See
+        <a href="https://payments.google.com/payments/apis-secure/u/0/get_legal_document?ldo=0&ldt=privacynotice" target="_blank" rel="noopener noreferrer" style="color: var(--color-accent);">Google Payments Privacy Notice</a>.
+      </p>
+
+      <h2 class="text-xl font-semibold mt-8 mb-3" style="color: var(--color-text);">9. Children's privacy</h2>
+      <p>
+        Aninaya is not directed at children under 13 (or under 16 in the EU).
+        We do not knowingly collect data from children.
+      </p>
+
+      <h2 class="text-xl font-semibold mt-8 mb-3" style="color: var(--color-text);">10. Changes to this policy</h2>
+      <p>
+        If we add server-side features in a future version (e.g. cloud sync, cloud Smart Scan),
+        we will update this policy and notify you via an in-app banner before those features go
+        live. The updated policy will be posted at this URL with a new effective date.
+      </p>
+
+      <h2 class="text-xl font-semibold mt-8 mb-3" style="color: var(--color-text);">11. Contact</h2>
+      <p>
+        Questions or concerns about this policy:<br />
+        <a href="mailto:kaijubytes.dev@gmail.com" style="color: var(--color-accent);">kaijubytes.dev@gmail.com</a><br />
+        KaijuBytes, Philippines
+      </p>
+
+      <footer class="mt-12 pt-6 text-sm" style="border-top: 1px solid var(--color-border); color: var(--color-muted);">
+        © 2026 Orlando G. Martinez (Lanz) / KaijuBytes. All rights reserved.
+        Aninaya is not a regulated financial adviser. Information in the app
+        is for personal budgeting and planning purposes only.
+      </footer>
+    </div>
+  </section>
+</BaseLayout>

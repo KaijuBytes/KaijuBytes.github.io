@@ -1,0 +1,69 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  tags: string[];
+  repoUrl?: string;
+  demoUrl?: string;
+  /// Optional internal route to a dedicated product / project page on
+  /// this same site. Renders as a "Learn more" link that stays in-tab
+  /// (no `target="_blank"`) — distinct from `demoUrl` which is treated
+  /// as external. First adopter: Aninaya → `/aninaya/`.
+  infoUrl?: string;
+  /// Full-bleed landscape banner shown ABOVE the title. Use for
+  /// screenshot-style art. Independent of `iconUrl`.
+  image?: string;
+  /// Small square icon (e.g. an Android app launcher icon) shown
+  /// INLINE with the title. Renders with soft rounded corners + a
+  /// gentle drop shadow to match the squircle adaptive-icon look.
+  /// Use for projects that have a brand mark; pass null otherwise.
+  iconUrl?: string;
+}
+
+const { title, description, tags, repoUrl, demoUrl, infoUrl, image, iconUrl } =
+  Astro.props;
+---
+
+<div class="rounded-xl p-6 transition-all hover:shadow-lg" style="background-color: var(--color-surface); border: 1px solid var(--color-border);">
+  {image && (
+    <img src={image} alt={title} class="w-full h-48 object-cover rounded-lg mb-4" />
+  )}
+  <div class="flex items-start gap-4 mb-2">
+    {iconUrl && (
+      <img
+        src={iconUrl}
+        alt={`${title} icon`}
+        width="56"
+        height="56"
+        class="shrink-0"
+        style="border-radius: 14px; box-shadow: 0 2px 8px rgba(0,0,0,0.15); width: 56px; height: 56px; object-fit: cover;"
+      />
+    )}
+    <h3 class="text-lg font-semibold" style="color: var(--color-text);">{title}</h3>
+  </div>
+  <p class="text-sm mb-4" style="color: var(--color-muted);">{description}</p>
+  <div class="flex flex-wrap gap-2 mb-4">
+    {tags.map(tag => (
+      <span class="text-xs px-2 py-1 rounded-full font-medium" style="background-color: var(--color-border); color: var(--color-muted);">
+        {tag}
+      </span>
+    ))}
+  </div>
+  <div class="flex flex-wrap gap-3">
+    {infoUrl && (
+      <a href={infoUrl} class="text-sm font-medium transition-colors" style="color: var(--color-accent);">
+        Learn more &rarr;
+      </a>
+    )}
+    {repoUrl && (
+      <a href={repoUrl} target="_blank" rel="noopener" class="text-sm font-medium transition-colors" style="color: var(--color-accent);">
+        Source Code &rarr;
+      </a>
+    )}
+    {demoUrl && (
+      <a href={demoUrl} target="_blank" rel="noopener" class="text-sm font-medium transition-colors" style="color: var(--color-accent);">
+        Live Demo &rarr;
+      </a>
+    )}
+  </div>
+</div>
